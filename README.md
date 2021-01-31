@@ -1,2 +1,10 @@
 # Capstone_FS105
 Capstone for full stack development FS105
+created new django app for capstone project
+connected django project to postgres sql
+created superuser admin
+
+#toDo
+1) set up react app
+2) set up database design(models)
+3) set up basic design for react components
