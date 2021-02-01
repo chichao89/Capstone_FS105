@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300&display=swap');
+
+html {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit
+}
+
+body {
+    margin:  0;
+    padding: 0;
+    line-height: 1;
+    font-family: 'Oswald', sans-serif;
+    color: #202020;
+    background-color: #fff;
+    font-smooth: always;
+    -webkit-font-smoothing: antialised;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.h2text {
+        font-family: 'Bebas Neue',sans-serif;
+        font-size: 5.4rem;
+        text-transform: uppercase;
+        letter-spacing: .64px;
+        line-height: 6.1rem;
+        color: #222;
+}
+
+.container{
+    text-align:center;
+}
+
+//for the navigation
+@media (min-width: 992px){
+.nav-link{
+    position:relative;
+}
+
+//for the navigation animation
+.link2:after {
+    content:'';
+    position: absolute;
+    width: 0; 
+    height: 0.2em;
+    display: block;
+    right:0;
+    background: #fff;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+.link2:hover:after{
+    width:100%;
+    background: white;
+  }
+}
+
+//jumbotron
+.jumbotron-fluid{
+  background-image:
+  linear-gradient(to top, rgba(245, 246, 252, 0.52), rgba(41, 38, 40, 0.73)),
+  url('./Assets/coffee.jpg');
+  background-size: cover;
+  background-position: bottom;
+  width: 100%;
+  z-index: -2;
+}
+
+/*adjusting the card */
+.card{
+    border: none;
+}
+.card-text{
+    font-size:.7em;
+}
+
+
+/*footer*/
+footer {
+    background:#1b1c1c
+}
+
+//story page
+.aboutme{
+    color: #4a4a4a;
+    font-family: 'Source Sans Pro',sans-serif;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    letter-spacing: normal;
+}
+
+
+footer input[type=text],input[type=email]{
+    border: 2px solid #fff;
+    max-width: 190px;
+    width: 100%;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 400;
+    padding: .7rem 1.4rem;
+    background: none;
+}
+
+//to create the search button look
+.buttonSearch{
+    border: 2px solid #fff;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #fff;
+    background: none;
+    margin-left: 0.8rem;
+    padding: .7rem;   
+}
+
+/*social media*/
+.cl{
+   text-align: right;
+   padding-right: 3.0rem !important;
+   margin: 0.5rem 0.5rem;
+}
+/*social media*/
+.fab {
+    padding: 0.5rem 0.5rem;
+    font-size: 2.5vw;
+    width: 3vw;
+    text-decoration: none;
+    margin: 0.5rem 0.5rem;
+  }
+  
+  /* Add a hover effect for the social media*/
+  .fab:hover {
+    opacity: 0.7;
+  }
+
+
+img {
+    cursor: pointer;
+    max-width:100%;
+}
+
+.img-fluid{
+    max-width : 80%;
+}
+
+//make certain images without cursor
+.none{
+    cursor: default;
+}
+
+//making the zoom effect in story page
+#parent{
+    display: inline-block;
+    margin: 20px;
+    border: 1px solid black;
+    overflow: hidden; 
+}
+#parent img{
+  display: block;
+  transition: transform .4s; 
+  max-width:100%;
+}
+#parent:hover img{
+    transform: scale(1.5);
+    transform-origin: 50% 50%;
+}
+
+//making the horizontal line
+hr{
+    height: 2.18px;
+    background:#020303;
+}
+
+//coffeeDetails Page
+.single{
+    background: #f7f6fc;
+    padding: 1rem 1.5rem;
+    font-size:1.1rem;
+    line-height: 1.2rem;
+    font-weight:200;
+    letter-spacing: normal;
+    text-align:left;
+}
+
+//section
+.locateS{
+    font-family:'Source Sans Pro',sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    line-height: 3rem;
+    text-transform: none;
+    max-width : 600px;
+    margin: 3.7rem auto 0;
+}
+
+//locate us
+.leftToRight{
+  position: relative;
+  transition:color 0.25s ease;
+}
+//locate us
+.leftToRight:hover{
+    color:red;
+}
+//locate us
+.leftToRight::after{
+  position: absolute;
+  content: '';
+  bottom: -0.5vw;
+  left: 55px;
+  width: 0;
+  height: 10%;
+  background-color: black;
+  transform-origin:left;
+  transition:width 0.25s ease;
+  z-index:-1;
+}
+.leftToRight:hover::after{
+    width: 60%;
+}
+
+//adjusting the width of dropdown
+.drop{
+    width : 25%;
+}
+
+//using numeric input
+.react-numeric-input input {
+    width : 80%;
+    right : 0;
+}
+
+//for the maps width and height
+.leaflet-container {
+    width: 100%;
+    height: 100vh;
+  }
+
+//cart
+
+.container-height{
+    height: 58vh;
+}
+
+//media screen display
+@media screen and (max-width: 600px) {
+    .display-2 {
+        font-size: 11vw;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+
+    .locateS{
+        font-family:'Source Sans Pro',sans-serif;
+        font-size: 5vw;
+        margin: 1rem auto 0;
+    }
+
+    .drop{
+        width: 50%;
+    }
+  }
+
+
+
+
+
+
+
+  
