@@ -8,3 +8,5 @@ created superuser admin
 1) set up react app
 2) set up database design(models)
 3) set up basic design for react components
+4) userstories
+5) finetune the project documentation
