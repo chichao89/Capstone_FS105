@@ -26,7 +26,7 @@ from serviceNail import views as serviceNail_views
 from testimonial import views as testimonial_views
 
 router = routers.DefaultRouter()
-router.register(r'BookingAPI', booking_views.BookingViewSet)
+router.register(r'BookingAPI', booking_views.BookingViewSet, 'Booking')
 router.register(r'ImageFilesAPI', image_views.ImageFilesViewSet)
 router.register(r'ProductAPI', product_views.ProductViewSet)
 router.register(r'ProfileAPI', profile_views.ProfileViewSet)

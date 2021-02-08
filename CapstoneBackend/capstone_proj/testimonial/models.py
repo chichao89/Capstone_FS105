@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Testimonial(models.Model):
-   testimonial_ID = models.IntegerField(verbose_name="Testimonial ID", primary_key=True)
+   testimonial_ID = models.AutoField(verbose_name="Testimonial ID", primary_key=True)
    image = models.ForeignKey(to='imageFiles.ImageFiles', on_delete=models.SET_NULL, blank=True, null=True)
 
    def __str__(self):
