@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Booking(models.Model):
-    booking_ID = models.IntegerField(verbose_name="Booking ID", primary_key = True)
+    booking_ID = models.AutoField(verbose_name="Booking ID", primary_key = True)
     user = models.ForeignKey(User, on_delete=models.CASCADE,blank=True, null=True)
     service = models.ForeignKey(ServiceNail, on_delete=models.CASCADE,blank=True, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE,blank=True, null=True)
