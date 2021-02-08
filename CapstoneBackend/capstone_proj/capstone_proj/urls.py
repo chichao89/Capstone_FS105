@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from booking import views
+from booking import views as booking_views
+from imageFiles import views as image_views
 
 router = routers.DefaultRouter()
-router.register(r'Booking', views.BookingViewSet)
-# router.register(r'Employee', views.EmployeeViewSet, 'Employee')
+router.register(r'BookingViewSet', booking_views.BookingViewSet)
+router.register(r'ImageFilesViewSet', image_views.ImageFilesViewSet)
 # router.register(r'Department', views.DepartmentViewSet, 'Department')
 # router.register(r'ManagerViewSet',views.ManagerViewSet,'Manager')
 
