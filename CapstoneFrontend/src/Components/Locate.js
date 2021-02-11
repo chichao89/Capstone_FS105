@@ -16,7 +16,7 @@ class Locate extends Component {
     }
 
 
-    async componentDidMount() {
+    /*async componentDidMount() {
     
         await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Singapore&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`)
             .then(response =>  response.json())
@@ -45,7 +45,7 @@ class Locate extends Component {
                       error
                 });
             });
-    }
+    }*/
 
     render() {
         let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -152,7 +152,7 @@ class Locate extends Component {
                </Row> 
                 <Row>
                 <Col>
-                <div><p>{dayName}: {this.state.weatherData.temp}°C, {this.state.weatherData.description}, <img src={`http://openweathermap.org/img/wn/${this.state.weatherData.icon}.png`} alt="weathericon"/></p></div>
+                {/*<div><p>{dayName}: {this.state.weatherData.temp}°C, {this.state.weatherData.description}, <img src={`http://openweathermap.org/img/wn/${this.state.weatherData.icon}.png`} alt="weathericon"/></p></div>*/}
                 <section>
                 <MapContainer center={[1.34, 103.85]} zoom={12} scrollWheelZoom={false}>
                     <TileLayer

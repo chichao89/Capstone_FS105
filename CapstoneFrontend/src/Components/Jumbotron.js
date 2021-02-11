@@ -9,28 +9,28 @@ const Jumbotron = () => {
     <Jumbo fluid className="min-vh-100">
       <Container>
         <div className="col-lg-8 text-left">
-        <h6 className="text-white text-uppercase">Now you can feel the energy</h6>
-        <h1 className="display-2 text-warning">Start your day with
+        {/*<h6 className="text-white text-uppercase">Now you can feel the energy</h6>*/}
+        <h1 className="display-2 text-warning">Hi, I'm Dee. How can i help? 
         <Typical
             loop={Infinity}
-            wrapper='span'
+            wrapper='p'
             steps={[
-                ' a black Coffee',
-                1000,
-                ' a Cappucino',
+                ' Apres Extensions?',
                 2000,
-                ' an Expresso',
-                3000,
-                ' an iced Mocha',
+                ' Acrylic Extensions?',
                 4000,
-                ' an Americano',
-                5000
+                ' What about PolyGel Extensions?',
+                6000,
+                ' No? How about good old Gel Manicure?',
+                8000,
+                ' Wanna talk about it instead?',
+                10000
             ]}/>
                 </h1>
-        <h5 className="text-white">Connecting to the local community</h5>
+        <h5 className="text-white">Look me up! I can customise something for your needs.</h5>
         </div>
         <div className="d-*-flex flex-*-row justify-content-*-center m-5"> 
-        <Nav.Link as={NavLink} to="/Story"><button className="btn btn-light btn btn-outline-dark">Learn Our Story</button></Nav.Link></div>
+        <Nav.Link as={NavLink} to="/Booking"><button className="btn btn-light btn btn-outline-dark">Make Your Booking Now</button></Nav.Link></div>
         
       </Container>
     </Jumbo>
