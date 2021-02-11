@@ -38,8 +38,8 @@ function Home(props) {
   else{
   return (
     <div>
-    <h2 className="h2text">Hot Products</h2>
-    <Nav.Link as={NavLink} to={`/Shop/`+id[0]}><button className="btn btn-dark btn btn-outline-light">Shop All Products</button></Nav.Link>
+    <h2 className="h2text">Testimonial</h2>
+    <Nav.Link as={NavLink} to={`/Services/`+id[0]}><button className="btn btn-dark btn btn-outline-light">Check Our Services Out!</button></Nav.Link>
     <CardDeck>
       {shuffleArray(props.product).slice(0,3).map((key) => (
           <Card className="col-lg-4" key={key.id}>
