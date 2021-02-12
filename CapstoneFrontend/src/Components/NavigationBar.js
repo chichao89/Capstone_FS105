@@ -28,6 +28,7 @@ const NavigationBar = () => {
           <Nav.Link className="link2" as={NavLink} to={`/Shop/`+id[0]}>Shop</Nav.Link>
           <Nav.Link className="link2" as={NavLink} to="/Locate">Locate Us</Nav.Link>
           <Nav.Link className="link2" as={NavLink} to="/Cart">Cart</Nav.Link>
+          <Nav.Link className="link2" as={NavLink} to="/Services">Services</Nav.Link>
           <div className="text-white">{cartLength}</div>  
         </Nav>
         </Navbar.Collapse>
