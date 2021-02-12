@@ -12,7 +12,7 @@ class ImageFiles(models.Model):
     Image_URL = models.CharField(verbose_name="Image URL", max_length=200)
 
     def __str__(self):
-      return (str(self.Image_ID))+" - "+(self.Image_URL)
+      return self.Image_URL
     
     class Meta:
       db_table = "imagefiles"
