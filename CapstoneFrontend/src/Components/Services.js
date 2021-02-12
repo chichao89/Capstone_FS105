@@ -34,7 +34,7 @@ class Services extends Component {
           {this.state.services.map((key) => (
             <div className="col-lg-4" key={key.service_ID}>
               <Card>
-                <div className="box-container">   
+                <div className="effect-image-1">   
                 <Card.Img
                   className="image"
                   src={key.image}
@@ -42,16 +42,21 @@ class Services extends Component {
                   alt={key.image}
                   key={key.id}
                 ></Card.Img>    
-                <div className="middle"><div className="text"><Card.Text>{key.service_description}</Card.Text></div></div>
-                </div> 
+                  <div className="overlay-sim-text-2 overlay-xs-1"><p>{key.service_description}</p></div>
+                  </div>
                 <Card.Body>
                   <Card.Title className="text-uppercase">
                     {key.service_type}
                   </Card.Title>
                 </Card.Body>
                 <Card.Footer> 
-                  {key.price_currency}      
-                  {key.price}
+                  <span className="">{key.price_currency}</span>
+                  {key.price === '0.00' ? (
+                    <span>Free</span>
+                  ) : (
+                    <span>{key.price}</span>
+                  )
+                 }
                 </Card.Footer>
               </Card>
             </div>
