@@ -10,3 +10,11 @@ created superuser admin
 3) set up basic design for react components
 4) userstories
 5) finetune the project documentation
+
+
+added Backend Models in django
+created api endpoints
+
+created homepage component frontend
+created services component frontend with axios call
+
