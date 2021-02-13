@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Nav } from 'react-bootstrap';
 import {NavLink } from 'react-router-dom'
-import {id} from './NavigationBar'
+// import {id} from './NavigationBar'
 
 function Cart() {
               
@@ -36,7 +36,7 @@ function Cart() {
                                 </Col>
                               </Row>
                               <Row>
-                              <Nav.Link className="mx-auto mw-25 w-25 p-5" as={NavLink} to={`/Shop/`+id[0]}><button className="btn btn-dark btn btn-outline-light">Back To Shop</button></Nav.Link>
+                              {/* <Nav.Link className="mx-auto mw-25 w-25 p-5" as={NavLink} to={`/Shop/`+id[0]}><button className="btn btn-dark btn btn-outline-light">Back To Shop</button></Nav.Link> */}
                               </Row>
                             </div>
                      )
