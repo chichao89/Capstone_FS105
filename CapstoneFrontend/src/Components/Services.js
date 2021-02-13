@@ -36,7 +36,6 @@ class Services extends Component {
               <Card>
                 <div className="effect-image-1">   
                 <Card.Img
-                  className="image"
                   src={key.image}
                   variant="top"
                   alt={key.image}

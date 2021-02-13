@@ -4,7 +4,7 @@ import {Link, NavLink } from 'react-router-dom';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-export const id = [1,2,3];
+// export const id = [1,2,3];
 
 
 const NavigationBar = () => {
@@ -62,10 +62,10 @@ const NavigationBar = () => {
                 </Form>
               </Modal.Body>
         <Modal.Footer>
-          <Button className="buttonSearch" onClick={() => setInShow(false)}>
+          <Button className="buttonSearch button2" onClick={() => setInShow(false)}>
             Close
           </Button>
-          <Button className="buttonSearch" onClick={() => setInShow(false)}>
+          <Button className="buttonSearch button2" onClick={() => setInShow(false)}>
             Sign In
           </Button>
         </Modal.Footer>
@@ -93,10 +93,10 @@ const NavigationBar = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button className="buttonSearch" onClick={() => setUpShow(false)}>
+          <Button className="buttonSearch button2" onClick={() => setUpShow(false)}>
             Close
           </Button>
-          <Button className="buttonSearch" onClick={() => setUpShow(false)}>
+          <Button className="buttonSearch button2" onClick={() => setUpShow(false)}>
             Submit
           </Button>
         </Modal.Footer>
