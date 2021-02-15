@@ -16,15 +16,15 @@ const Jumbotron = () => {
             wrapper='p'
             steps={[
                 ' Apres Extensions?',
-                4000,
+                5000,
                 ' Acrylic Extensions?',
-                4000,
+                5000,
                 ' What about PolyGel Extensions?',
-                4000,
+                5000,
                 ' No? How about good old Gel Manicure?',
-                4000,
+                5000,
                 ' Wanna talk about it instead?',
-                4000
+                5000
             ]}/>
                 </h1>
         <h5 className="text-white">Look me up! I can customise something for your needs.</h5>

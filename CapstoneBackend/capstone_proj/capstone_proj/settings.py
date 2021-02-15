@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'djmoney',
     'profileuser',
     'imageFiles',
+    'core',
 ]
 
 # AUTH_USER_MODEL = 'user.CustomUser' # new
@@ -66,6 +67,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'capstone_proj.urls'
 CORS_ORIGIN_ALLOW_ALL = True
+
+JWT_AUTH = {
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'capstone_proj.utils.my_jwt_response_handler'
+}
+
+
 
 TEMPLATES = [
     {
@@ -85,15 +92,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'capstone_proj.wsgi.application'
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.IsAuthenticated',
-#     ],
-#     'DEFAULT_AUTHENTICATION_CLASSES': [
-#         'rest_framework.authentication.SessionAuthentication',
-#         'rest_framework.authentication.TokenAuthentication',
-#     ],
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
