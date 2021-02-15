@@ -12,7 +12,7 @@ import Col from 'react-bootstrap/Col';
   function NavigationBar(props) {
     //state of logged_in
     const [values, setValues] = useState({
-      userName: '',
+      username: '',
       password: '',
     });
 
@@ -20,7 +20,7 @@ import Col from 'react-bootstrap/Col';
       event.persist();
       setValues((values) => ({
         ...values,
-        userName: event.target.value,
+        username: event.target.value,
       }));
     };
   
@@ -56,17 +56,17 @@ import Col from 'react-bootstrap/Col';
             <Modal.Title id="signIn">Sign In</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form className="form-group" onSubmit={props.handle_login}>
-              <label for="username">Username:</label>
+            <Form className="form-group" onSubmit={e => props.handle_login(e,values)}>
+              <label htmlFor="username">Username:</label>
               <input
                 type="text"
                 name="username"
                 className="form-control"
                 id="username"
-                value={values.userName}
+                value={values.username}
                 onChange={handleUserNameChange}
               ></input>
-              <label for="pwd">Password:</label>
+              <label htmlFor="pwd">Password:</label>
               <input
                 type="password"
                 name="password"
@@ -152,6 +152,7 @@ import Col from 'react-bootstrap/Col';
 
   const logged_in_nav = (
     <div>
+      <span className="text-white">Hello, {props.username}</span>
       <Button className="buttonSearch button2" onClick={props.handle_logout}>
         logout
       </Button>

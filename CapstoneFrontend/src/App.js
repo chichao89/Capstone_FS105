@@ -35,7 +35,7 @@ class App extends Component {
       })
         .then(res => res.json())
         .then(json => {
-          this.setState({ username: json.Username });
+          this.setState({ username: json.username });
         });
     }
   }
@@ -54,7 +54,7 @@ class App extends Component {
         localStorage.setItem('token', json.token);
         this.setState({
           logged_in: true,
-          username: json.Username
+          username: json.user.username 
         });
       });
   };
@@ -90,13 +90,14 @@ render(){
         <NavigationBar 
           logged_in={this.state.logged_in}
           handle_login={this.handle_login}
-          handle_logout={this.handle_logout}    
+          handle_logout={this.handle_logout}
+          username={this.state.username}
         />
-        <h3>
+        {/* <h3>
           {this.state.logged_in
             ? `Hello, ${this.state.username}`
             : 'Please Log In'}
-        </h3>
+        </h3> */}
             <Route exact path="/" component={Coffee} />
         <Layout>  
             <Route path="/Services" component={Services}/>
