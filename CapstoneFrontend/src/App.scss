@@ -262,6 +262,51 @@ hr{
     height: 58vh;
 }
 
+/// new css added
+.effect-image-1{
+	position: relative;
+	display: block;
+}
+
+.effect-image-1:hover .overlay-xs-1{
+    opacity: 1;
+    visibility: visible;
+    display: block;	
+}
+
+.overlay-sim-text-2{
+    transition: all .4s linear;
+    -webkit-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+    -o-transition: all .4s linear;
+}
+
+.overlay-sim-text-2{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(246,0,2,.7);
+    opacity: 0;
+}
+
+.overlay-sim-text-2 p{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    padding: 20px 20px;
+}
+
+.card{
+    margin:1em;
+}
+
+span{
+    padding: 0.2em;
+}
+
+
 //media screen display
 @media screen and (max-width: 600px) {
     .display-2 {
