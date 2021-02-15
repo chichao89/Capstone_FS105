@@ -41,10 +41,10 @@ const NavigationBar = () => {
         </Nav>
           <div id="signIn"className="nav navbar-nav navbar-right" >
           <>
-            <Button variant="primary" className="buttonSearch" onClick={() => setInShow(true)}>
+            <Button  className="buttonSearch" onClick={() => setInShow(true)}>
             SIGN IN
             </Button>
-            <Button variant="secondary" className="buttonSearch" onClick={() => setUpShow(true)}>
+            <Button  className="buttonSearch" onClick={() => setUpShow(true)}>
             SIGN UP
             </Button>
             <Modal show={inShow} onHide={() => setInShow(false)}>
@@ -60,10 +60,10 @@ const NavigationBar = () => {
                 </Form>
               </Modal.Body>
         <Modal.Footer>
-          <Button className="buttonSearch" onClick={() => setInShow(false)}>
+          <Button className="buttonSubmit" onClick={() => setInShow(false)}>
             Close
           </Button>
-          <Button className="buttonSearch" onClick={() => setInShow(false)}>
+          <Button className="buttonSubmit" onClick={() => setInShow(false)}>
             Sign In
           </Button>
         </Modal.Footer>
@@ -82,19 +82,19 @@ const NavigationBar = () => {
             <input type="password" name="password" className="form-control" id="password"></input>
             <label for="email">Email Address:</label>
             <input type="email" name="email" className="form-control" id="email"></input>
-            <label for="address">Address:</label>
+            <label for="address">Postal Code:</label>
             <br/>
-            <textarea name="address"rows="5" cols="68"></textarea>
+            <input type="address" name="address" className="form-control" id="address"></input>
             <label for="phone">Contact:</label>
             <br/>
             <input type="tel" id="phone" name="phone" className="form-control" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"></input>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button className="buttonSearch" onClick={() => setUpShow(false)}>
+          <Button className="buttonSubmit" onClick={() => setUpShow(false)}>
             Close
           </Button>
-          <Button className="buttonSearch" onClick={() => setUpShow(false)}>
+          <Button className="buttonSubmit" onClick={() => setUpShow(false)}>
             Submit
           </Button>
         </Modal.Footer>
