@@ -66,9 +66,10 @@ body {
 .jumbotron-fluid{
   background-image:
   linear-gradient(to top, rgba(245, 246, 252, 0.52), rgba(41, 38, 40, 0.73)),
-  url('./Assets/coffee.jpg');
+  url('./Assets/naillogo.jpeg');
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100%;
   z-index: -2;
 }
