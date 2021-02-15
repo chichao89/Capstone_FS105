@@ -298,6 +298,11 @@ hr{
     margin:1em;
 }
 
+.card-img-top {
+    width: 100%;
+    object-fit: cover;
+}
+
 span{
     padding: 0.2em;
 }
