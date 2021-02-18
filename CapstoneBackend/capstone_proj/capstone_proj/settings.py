@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'djmoney',
     'profileuser',
     'imageFiles',
+    'slots',
     'core',
 ]
 

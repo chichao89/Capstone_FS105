@@ -24,7 +24,9 @@ from promotion import views as promotion_views
 from role import views as role_views
 from serviceNail import views as serviceNail_views
 from testimonial import views as testimonial_views
+from slots import views as slots_views
 from rest_framework_jwt.views import obtain_jwt_token
+
 
 router = routers.DefaultRouter()
 router.register(r'BookingAPI', booking_views.BookingViewSet, 'Booking')
@@ -35,6 +37,7 @@ router.register(r'PromotionAPI',promotion_views.PromotionViewSet)
 router.register(r'RoleAPI', role_views.RoleViewSet )
 router.register(r'ServiceNailAPI', serviceNail_views.ServiceNailViewSet )
 router.register(r'TestimonialAPI', testimonial_views.TestimonialViewSet )
+router.register(r'SlotsAPI', slots_views.SlotsViewSet)
 
 
 urlpatterns = [
