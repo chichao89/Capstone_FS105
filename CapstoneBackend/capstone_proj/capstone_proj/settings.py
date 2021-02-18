@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'djmoney',
     'profileuser',
     'imageFiles',
+    'slots',
 ]
 
 # AUTH_USER_MODEL = 'user.CustomUser' # new
