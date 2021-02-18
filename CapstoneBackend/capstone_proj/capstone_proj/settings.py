@@ -70,7 +70,8 @@ ROOT_URLCONF = 'capstone_proj.urls'
 CORS_ORIGIN_ALLOW_ALL = True
 
 JWT_AUTH = {
-    'JWT_RESPONSE_PAYLOAD_HANDLER': 'capstone_proj.utils.my_jwt_response_handler'
+    'JWT_RESPONSE_PAYLOAD_HANDLER': 'capstone_proj.utils.my_jwt_response_handler',
+    'JWT_VERIFY_EXPIRATION' : False
 }
 
 

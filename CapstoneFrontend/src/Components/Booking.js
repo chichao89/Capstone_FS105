@@ -3,27 +3,46 @@ import { Navbar, Nav, Button, Form, Card } from 'react-bootstrap';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import DatePicker from "react-datepicker";
-import TimePicker from "react-time-picker"
+// import TimePicker from "react-time-picker"
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { Slots_API_URL } from "../api/api";
 import { API_URL } from "../api/api";
 
+
 class Booking extends Component {
   //constructor() {
-    //const [startDate, setStartDate] = useState(new Date());
-    //const [value, onChange] = useState('10:00');
-
+    // const [startDate, setStartDate] = useState(new Date());
+    // const [value, onChange] = useState('10:00');
+ 
+    
     constructor(props) {
       super(props)
       this.state = {
         timeslot: [],
         services: [],
+        startDate: new Date()
       };
+      this.handleChange = this.handleChange.bind(this);
+      this.onFormSubmit = this.onFormSubmit.bind(this);
+    }
+
+    handleChange(date) {
+      this.setState({
+        startDate: date
+      })
+    }
+
+    onFormSubmit(e) {
+      e.preventDefault();
+      console.log(this.state.startDate)
     }
 
     componentDidMount() {
-      axios.get(Slots_API_URL).then((res) => {
+      axios.get(Slots_API_URL,{ 
+        headers: {
+          Authorization: `JWT ${localStorage.getItem('token')}`
+        } }).then((res) => {
         const timeslot = res.data;
         this.setState({ timeslot });
       });
@@ -56,11 +75,11 @@ class Booking extends Component {
               <h3 className="text-uppercase">Select Date</h3>
               
               <div>
-                {/*<DatePicker
-                  selected={startDate}
-                  onChange={(date) => setStartDate(date)}
+                <DatePicker
+                  selected={this.state.startDate }
+                  onChange={ this.handleChange }
                   fixedHeight
-                inline />*/}
+                inline />*/
               </div>
             </div>
           </Col>
