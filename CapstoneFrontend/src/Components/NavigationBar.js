@@ -1,42 +1,102 @@
-import React,{useEffect,useState} from "react";
-import { Navbar, Nav, Button, Form } from 'react-bootstrap';
-import {Link, NavLink } from 'react-router-dom';
-import Modal from 'react-bootstrap/Modal';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import React, { useEffect, useState } from "react";
+import { Navbar, Nav, Button, Form } from "react-bootstrap";
+import { Link, NavLink } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+function NavigationBar(props) {
+  //state of logged_in
+  const [values, setValues] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleUserNameChange = (event) => {
+    event.persist();
+    setValues((values) => ({
+      ...values,
+      username: event.target.value,
+    }));
+  };
+
+  const handlePasswordChange = (event) => {
+    event.persist();
+    setValues((values) => ({
+      ...values,
+      password: event.target.value,
+    }));
+  };
+
+  //signup event
+  const [signUp, setSignUp] = useState({
+    username: "",
+    password: "",
+    repassword: "",
+    email: "",
+    address: "",
+    contact: "",
+  });
+
+  const handleSignUpUserNameChange = (event) => {
+    event.persist();
+    setSignUp((signUp) => ({
+      ...signUp,
+      username: event.target.value,
+    }));
+  };
+
+  const handleSignUpPasswordChange = (event) => {
+    event.persist();
+    setSignUp((signUp) => ({
+      ...signUp,
+      password: event.target.value,
+    }));
+  };
 
 
+  const handleSignUpRePasswordChange = (event) => {
+    event.persist();
+    setSignUp((signUp) => ({
+      ...signUp,
+      repassword: event.target.value,
+    }));
+  };
 
 
-
-  function NavigationBar(props) {
-    //state of logged_in
-    const [values, setValues] = useState({
-      username: '',
-      password: '',
-    });
-
-    const handleUserNameChange = (event) => {
-      event.persist();
-      setValues((values) => ({
-        ...values,
-        username: event.target.value,
-      }));
-    };
+  const handleSignUpEmailChange = (event) => {
+    event.persist();
+    setSignUp((signUp) => ({
+      ...signUp,
+      email: event.target.value,
+    }));
+  };
   
-    const handlePasswordChange = (event) => {
-      event.persist();
-      setValues((values) => ({
-        ...values,
-        password: event.target.value,
-      }));
-    };
+  const handleSignUpAddressChange = (event) => {
+    event.persist();
+    setSignUp((signUp) => ({
+      ...signUp,
+      address: event.target.value,
+    }));
+  };
   
-    // function handleSubmit(e) {
-    //   e.preventDefault();
-    //   alert(`Submitting ${values.userName}`);
-    //   alert(`Submitting ${values.password}`);
-    // }
+  const handleSignUpContactChange = (event) => {
+    event.persist();
+    setSignUp((signUp) => ({
+      ...signUp,
+      contact: event.target.value,
+    }));
+  };
+  
+
+
+
+
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   alert(`Submitting ${values.userName}`);
+  //   alert(`Submitting ${values.password}`);
+  // }
   const [inShow, setInShow, setShow] = useState(false);
   const [upShow, setUpShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -56,7 +116,10 @@ import Col from 'react-bootstrap/Col';
             <Modal.Title id="signIn">Sign In</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form className="form-group" onSubmit={e => props.handle_login(e,values)}>
+            <Form
+              className="form-group"
+              onSubmit={(e) => props.handle_login(e, values)}
+            >
               <label htmlFor="username">Username:</label>
               <input
                 type="text"
@@ -66,7 +129,9 @@ import Col from 'react-bootstrap/Col';
                 value={values.username}
                 onChange={handleUserNameChange}
               ></input>
-              <label htmlFor="pwd">Password:</label>
+              <label htmlFor="pwd" class="ms-2 mt-2">
+                Password:
+              </label>
               <input
                 type="password"
                 name="password"
@@ -76,11 +141,16 @@ import Col from 'react-bootstrap/Col';
                 onChange={handlePasswordChange}
               ></input>
               <Modal.Footer>
-            <Button className="buttonSubmit" onClick={() => setInShow(false)}>
-              Close
-            </Button>
-            <input type="submit" className="buttonSubmit" value="SignIn"/>
-          </Modal.Footer>
+                <Button
+                  className="buttonSubmit"
+                  onClick={() => setInShow(false)}
+                >
+                  Close
+                </Button>
+                <Button className="buttonSubmit" type="submit">
+                  SignIn
+                </Button>
+              </Modal.Footer>
             </Form>
           </Modal.Body>
         </Modal>
@@ -89,62 +159,89 @@ import Col from 'react-bootstrap/Col';
             <Modal.Title id="signUp">Sign up below!</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form className="form-group">
-              <label for="username">Username:</label>
+            <Form
+              className="form-group"
+              onSubmit={(e) => props.handle_signup(e, signUp)}
+            >
+              <label htmlFor="username">Username:</label>
               <input
                 type="text"
                 name="username"
                 className="form-control"
                 id="username"
+                value={signUp.username}
+                onChange={handleSignUpUserNameChange}
               ></input>
-              <label for="pwd">Password:</label>
+              <label htmlFor="pwd" class="ms-2 mt-2">
+                Password:
+              </label>
               <input
                 type="password"
                 name="password"
                 className="form-control"
                 id="password"
+                value={signUp.password}
+                onChange={handleSignUpPasswordChange}
               ></input>
-              <label for="pwd">Re-Type Password:</label>
+              <label htmlFor="pwd" class="ms-2 mt-2">
+                Re-Type Password:
+              </label>
               <input
                 type="password"
-                name="password"
+                name="repassword"
                 className="form-control"
-                id="password"
+                id="repassword"
+                value={signUp.repassword}
+                onChange={handleSignUpRePasswordChange}
               ></input>
-              <label for="email">Email Address:</label>
+              <label htmlFor="email" class="ms-2 mt-2">
+                Email Address:
+              </label>
               <input
-                type="email"
+                type="text"
                 name="email"
                 className="form-control"
                 id="email"
+                value={signUp.email}
+                onChange={handleSignUpEmailChange}
               ></input>
-              <label for="address">Postal Code:</label>
-              <br />
+              <label htmlFor="address" class="ms-2 mt-2">
+                Address:
+              </label>
               <input
-                type="address"
+                type="text"
                 name="address"
                 className="form-control"
                 id="address"
+                value={signUp.address}
+                onChange={handleSignUpAddressChange}
               ></input>
-              <label for="phone">Contact:</label>
+              <label htmlFor="phone" class="ms-2 mt-2">
+                Contact:
+              </label>
               <br />
               <input
                 type="tel"
                 id="phone"
                 name="phone"
                 className="form-control"
-                pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                pattern="[0-9]{8}"
+                value={signUp.contact}
+                onChange={handleSignUpContactChange}
               ></input>
+              <Modal.Footer>
+                <Button
+                  className="buttonSubmit"
+                  onClick={() => setUpShow(false)}
+                >
+                  Close
+                </Button>
+                <Button className="buttonSubmit" type="submit">
+                  Submit
+                </Button>
+              </Modal.Footer>
             </Form>
           </Modal.Body>
-          <Modal.Footer>
-            <Button className="buttonSubmit" onClick={() => setUpShow(false)}>
-              Close
-            </Button>
-            <Button className="buttonSubmit" onClick={() => setUpShow(false)}>
-              Submit
-            </Button>
-          </Modal.Footer>
         </Modal>
       </>
     </div>
@@ -161,22 +258,34 @@ import Col from 'react-bootstrap/Col';
 
   return (
     <React.Fragment>
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="sticky-top">
-        <Navbar.Brand as={Link} to="/">inailforfung</Navbar.Brand>
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="dark"
+        variant="dark"
+        className="sticky-top"
+      >
+        <Navbar.Brand as={Link} to="/">
+          inailforfung
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mx-auto">
-          <Nav.Link className="link2" as={NavLink} to="/" exact>Home</Nav.Link>
-          <Nav.Link className="link2" as={NavLink} to="/Services">Services</Nav.Link>
-          <Nav.Link className="link2" as={NavLink} to="/Booking">Booking</Nav.Link>
-        </Nav>
-        <div>{props.logged_in ? logged_in_nav : logged_out_nav}</div>;
+          <Nav className="mx-auto">
+            <Nav.Link className="link2" as={NavLink} to="/" exact>
+              Home
+            </Nav.Link>
+            <Nav.Link className="link2" as={NavLink} to="/Services">
+              Services
+            </Nav.Link>
+            <Nav.Link className="link2" as={NavLink} to="/Booking">
+              Booking
+            </Nav.Link>
+          </Nav>
+          <div>{props.logged_in ? logged_in_nav : logged_out_nav}</div>;
         </Navbar.Collapse>
       </Navbar>
     </React.Fragment>
-    
   );
-};
-
+}
 
 export default NavigationBar;

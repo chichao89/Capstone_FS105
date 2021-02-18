@@ -59,25 +59,24 @@ class App extends Component {
       });
   };
 
-    // handle_signup = (e, data) => {
-  //   e.preventDefault();
-  //   fetch('http://localhost:8000/core/users/', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(data)
-  //   })
-  //     .then(res => res.json())
-  //     .then(json => {
-  //       localStorage.setItem('token', json.token);
-  //       this.setState({
-  //         logged_in: true,
-  //         displayed_form: '',
-  //         username: json.username
-  //       });
-  //     });
-  // };
+    handle_signup = (e, data) => {
+    e.preventDefault();
+    fetch('http://localhost:8000/core/users/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(json => {
+        localStorage.setItem('token', json.token);
+        this.setState({
+          logged_in: true,
+          username: json.username
+        });
+      });
+  };
 
   handle_logout = () => {
     localStorage.removeItem('token');
@@ -91,6 +90,7 @@ render(){
           logged_in={this.state.logged_in}
           handle_login={this.handle_login}
           handle_logout={this.handle_logout}
+          handle_signup={this.handle_signup}
           username={this.state.username}
         />
         {/* <h3>
