@@ -25,6 +25,8 @@ from role import views as role_views
 from serviceNail import views as serviceNail_views
 from testimonial import views as testimonial_views
 from slots import views as slots_views
+from rest_framework_jwt.views import obtain_jwt_token
+
 
 router = routers.DefaultRouter()
 router.register(r'BookingAPI', booking_views.BookingViewSet, 'Booking')
@@ -41,5 +43,7 @@ router.register(r'SlotsAPI', slots_views.SlotsViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('token-auth/', obtain_jwt_token),
+    path('core/', include('core.urls'))
 ]
