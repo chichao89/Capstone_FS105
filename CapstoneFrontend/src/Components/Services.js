@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import CoffeeDetails from "./CoffeeDetails";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import { API_URL } from "../api/api";

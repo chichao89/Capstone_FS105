@@ -3,7 +3,6 @@ import { Navbar, Nav, Button, Form, Card } from 'react-bootstrap';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import DatePicker from "react-datepicker";
-// import TimePicker from "react-time-picker"
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { Slots_API_URL } from "../api/api";

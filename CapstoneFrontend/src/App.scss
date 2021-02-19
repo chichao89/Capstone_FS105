@@ -1,8 +1,3 @@
-//@import url('https://fonts.googleapis.com/css2?family=Itim&family=Oswald:wght@500&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,300&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
@@ -27,7 +22,6 @@ body {
     margin:  0;
     padding: 0;
     line-height: 1;
-    //font-family: 'Oswald', sans-serif;
     font-family: 'Permanent Marker';
     color: #202020;
     background-color: #fff;
@@ -46,14 +40,12 @@ body {
 }
 
 .slogan{
-
     color: #eab5b5;
     text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000; 
-    
 }
 
 .display-6{
@@ -124,7 +116,7 @@ body {
 
 //jumbotron
 .jumbotron-fluid, .parallax{
-    background-attachment: fixed;
+    // background-attachment: fixed;
   background-image:
   linear-gradient(to top, (#ff9aa24f, #ffb7b22a, #ffdac12a, #e2f0cb4b), (#e2f0cb52, #b5ead736, #c7ceea52)),
   url('./Assets/naillogo.jpeg');
@@ -391,5 +383,10 @@ span{
 
     .drop{
         width: 50%;
+    }
+
+    .jumbotron
+    {
+    background-size: 100% 50%;
     }
   }

@@ -1,14 +1,11 @@
 import React, {useState,useEffect} from "react";
 import Card from "react-bootstrap/Card";
-//import CardDeck from "react-bootstrap/CardDeck";
 import { Nav } from 'react-bootstrap';
 import {NavLink } from 'react-router-dom'
-// import {id} from './NavigationBar'
-//import CoffeeDetails from './CoffeeDetails'
 import axios from 'axios'
 import { Testimonial_API_URL } from "../api/api";
 import Row from "react-bootstrap/Row";
-//import Col from "react-bootstrap/Col";
+
 
 function Home(props) {
   const [testimonial, setData] = useState([]);
@@ -31,23 +28,6 @@ function Home(props) {
      return testimonial;
    }
 
-  //declare a new state variable isToggleon
-  // const [isToggleOn, handleClick] = useState(false);
-  // const [myKey, handleKey] = useState();
-
- 
-  // if (isToggleOn) {
-  //   return (
-  //     <div>
-  //       <button className="rounded-circle float-right" onClick={()=>handleClick(!isToggleOn)}>X</button>
-  //       <CoffeeDetails
-  //         warn={isToggleOn && myKey}
-  //         product={props.product}
-  //       />
-  //     </div>
-  //   );
-  // }
-  // else{
   return (
     <div className="parallax2">
       <h1 className="text-uppercase">Testimonial</h1>
@@ -71,21 +51,6 @@ function Home(props) {
         ))}
       </Row>
 
-      {/* <CardDeck>
-      {shuffleArray(props.product).slice(0,3).map((key) => (
-          <Card className="col-lg-4" key={key.id}>
-            <Card.Img  variant="top" src={key.img} onClick={() => {handleKey(key.id);handleClick(!isToggleOn)}}
-                        key={key.id} />
-            <Card.Body>
-              <Card.Title className="text-uppercase">{key.title}</Card.Title>
-              <Card.Text>{key.description}</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">{key.price[0].toFixed(2)}</small>
-            </Card.Footer>
-          </Card>
-      ))}
-    </CardDeck> */}
     </div>
   );
  

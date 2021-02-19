@@ -11,17 +11,6 @@ const Footer = () => {
         <footer>
             <div className="container-fluid">
                 <Row>
-                    {/*<Col>
-                        <div className="m-5">
-                            <h3 className="text-white">Search</h3>
-                            <form action="/" method="GET">
-                                <div className="input-group">
-                                    <input name="text" type="text" placeholder="Enter search term" />
-                                    <button className="buttonSearch" type="submit">Go</button>
-                                </div>
-                            </form>
-                        </div>
-                    </Col>*/}
                     <Col>
                         <div className="m-5">
                         <h3 className="text-white text-center">Contact Me</h3>
@@ -34,17 +23,6 @@ const Footer = () => {
                             </div>
                         </div>
                     </Col>
-                   {/*} <Col>
-                        <div className="m-5">
-                            <h3 className="text-white">Sign up for newsletter</h3>
-                            <form action="/" method="GET">
-                                <div className="input-group">
-                                    <input name="email" type="email" placeholder="Email Address"/>
-                                    <button className="buttonSearch" type="submit">Join</button>
-                                </div>
-                            </form>
-                        </div>
-    </Col>*/}
                 </Row>
                 <Row>
                     <Col><p className="text-white text-center">inailforfung © Copyright 2021</p></Col>

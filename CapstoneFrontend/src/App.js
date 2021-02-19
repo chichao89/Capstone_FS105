@@ -5,13 +5,10 @@ import "./App.scss";
 import Layout from "./Components/Layout";
 import NavigationBar from "./Components/NavigationBar";
 import { Route, HashRouter} from "react-router-dom";
-//import Story from "./Components/Story";
-import Coffee from "./Components/Coffee";
-//import Locate from "./Components/Locate";
 import Footer from "./Components/Footer"
-//import Cart from "./Components/Cart"
 import Services from "./Components/Services"
 import Booking from  "./Components/Booking"
+import Main from "./Components/Main"
 
 
 
@@ -92,12 +89,7 @@ render(){
           handle_signup={this.handle_signup}
           username={this.state.username}
         />
-        {/* <h3>
-          {this.state.logged_in
-            ? `Hello, ${this.state.username}`
-            : 'Please Log In'}
-        </h3> */}
-            <Route exact path="/" component={Coffee} />
+            <Route exact path="/" component={Main} />
         <Layout>  
             <Route path="/Services" component={Services}/>
             <Route path="/Booking" component={Booking}/>
