@@ -5,12 +5,11 @@ import "./App.scss";
 import Layout from "./Components/Layout";
 import NavigationBar from "./Components/NavigationBar";
 import { Route, HashRouter} from "react-router-dom";
-import Story from "./Components/Story";
+//import Story from "./Components/Story";
 import Coffee from "./Components/Coffee";
-import Locate from "./Components/Locate";
+//import Locate from "./Components/Locate";
 import Footer from "./Components/Footer"
-import Cart from "./Components/Cart"
-
+//import Cart from "./Components/Cart"
 import Services from "./Components/Services"
 import Booking from  "./Components/Booking"
 
