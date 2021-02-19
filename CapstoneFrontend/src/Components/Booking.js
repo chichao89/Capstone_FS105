@@ -142,7 +142,7 @@ class Booking extends Component {
         <Row>
           {this.state.services.map((key) => (
             <div className="col-lg-4" key={key.service_ID}>
-              <Card style={{ width: '10rem' }}>
+              <Card style={{ width: '11rem' }}>
                 <div className="img-thumbnail">
                   <Card.Img
                     src={key.image}

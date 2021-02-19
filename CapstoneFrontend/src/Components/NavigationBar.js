@@ -7,6 +7,8 @@ import Col from "react-bootstrap/Col";
 
 function NavigationBar(props) {
   //state of logged_in
+
+
   const [values, setValues] = useState({
     username: "",
     password: "",
@@ -89,9 +91,6 @@ function NavigationBar(props) {
   };
   
 
-
-
-
   // function handleSubmit(e) {
   //   e.preventDefault();
   //   alert(`Submitting ${values.userName}`);
@@ -105,10 +104,10 @@ function NavigationBar(props) {
   const logged_out_nav = (
     <div id="signIn" className="nav navbar-nav navbar-right">
       <>
-        <Button className="buttonSearch" onClick={() => setInShow(true)}>
+        <Button variant="outline-light" className="buttonSearch" onClick={() => setInShow(true)}>
           SIGN IN
         </Button>
-        <Button className="buttonSearch" onClick={() => setUpShow(true)}>
+        <Button variant="outline-light" className="buttonSearch" onClick={() => setUpShow(true)}>
           SIGN UP
         </Button>
         <Modal show={inShow} onHide={() => setInShow(false)}>
@@ -128,7 +127,9 @@ function NavigationBar(props) {
                 id="username"
                 value={values.username}
                 onChange={handleUserNameChange}
+                required
               ></input>
+              { props.errors ? props.errors: null}
               <label htmlFor="pwd" class="ms-2 mt-2">
                 Password:
               </label>
@@ -139,15 +140,16 @@ function NavigationBar(props) {
                 id="password"
                 value={values.password}
                 onChange={handlePasswordChange}
+                required
               ></input>
               <Modal.Footer>
-                <Button
+                <Button variant="outline-light"
                   className="buttonSubmit"
                   onClick={() => setInShow(false)}
                 >
                   Close
                 </Button>
-                <Button className="buttonSubmit" type="submit">
+                <Button variant="outline-light" className="buttonSubmit" type="submit">
                   SignIn
                 </Button>
               </Modal.Footer>
@@ -230,13 +232,13 @@ function NavigationBar(props) {
                 onChange={handleSignUpContactChange}
               ></input>
               <Modal.Footer>
-                <Button
+                <Button variant="outline-light"
                   className="buttonSubmit"
                   onClick={() => setUpShow(false)}
                 >
                   Close
                 </Button>
-                <Button className="buttonSubmit" type="submit">
+                <Button variant="outline-light" className="buttonSubmit" type="submit">
                   Submit
                 </Button>
               </Modal.Footer>
@@ -250,7 +252,7 @@ function NavigationBar(props) {
   const logged_in_nav = (
     <div>
       <span className="text-white">Hello, {props.username}</span>
-      <Button className="buttonSearch button2" onClick={props.handle_logout}>
+      <Button variant="outline-light" className="buttonSearch button2" onClick={props.handle_logout}>
         logout
       </Button>
     </div>
@@ -281,7 +283,7 @@ function NavigationBar(props) {
               Booking
             </Nav.Link>
           </Nav>
-          <div>{props.logged_in ? logged_in_nav : logged_out_nav}</div>;
+          <div>{props.logged_in ? logged_in_nav : logged_out_nav}</div>
         </Navbar.Collapse>
       </Navbar>
     </React.Fragment>

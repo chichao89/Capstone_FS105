@@ -37,7 +37,17 @@ function Home(props) {
         </button>
       </Nav.Link>
       <Row>
-        
+        {/* {testimonial.map((testimonialkey) => (
+          <div className="col-lg-4" key={testimonialkey.testimonial_ID}>
+            <Card>
+              <Card.Img
+                variant="top"
+                src={testimonialkey.image}
+                key={testimonialkey.testimonial_ID}
+              />
+            </Card>
+          </div>
+        ))} */}
         {shuffleArray(testimonial).slice(0,3).map((testimonialkey) => (
           <div className="col-lg-4" key={testimonial.testimonial_ID}>
           <Card >
@@ -50,7 +60,6 @@ function Home(props) {
           </div>
         ))}
       </Row>
-
     </div>
   );
  

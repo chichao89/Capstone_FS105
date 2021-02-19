@@ -18,7 +18,8 @@ class App extends Component {
     super(props);
     this.state = {
       logged_in: localStorage.getItem('token') ? true : false,
-      username: ''
+      username: '',
+      errors:{}
     };
   }
 
@@ -36,9 +37,10 @@ class App extends Component {
     }
   }
 
-  handle_login = (e, data) => {
+ handle_login = (e, data) => {
     e.preventDefault();
-    fetch('http://localhost:8000/token-auth/', {
+    try{
+    const response = fetch('http://localhost:8000/token-auth/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -53,6 +55,13 @@ class App extends Component {
           username: json.user.username 
         });
       });
+      return response
+    }catch(error) {
+      console.log(error.stack);
+      this.setState({
+          errors:error.response.data
+      });
+    }
   };
 
     handle_signup = (e, data) => {
@@ -88,6 +97,7 @@ render(){
           handle_logout={this.handle_logout}
           handle_signup={this.handle_signup}
           username={this.state.username}
+          error={this.state.errors}
         />
             <Route exact path="/" component={Main} />
         <Layout>  
