@@ -1,14 +1,14 @@
 import React, {useState,useEffect} from "react";
 import Card from "react-bootstrap/Card";
-import CardDeck from "react-bootstrap/CardDeck";
+//import CardDeck from "react-bootstrap/CardDeck";
 import { Nav } from 'react-bootstrap';
 import {NavLink } from 'react-router-dom'
 // import {id} from './NavigationBar'
-import CoffeeDetails from './CoffeeDetails'
+//import CoffeeDetails from './CoffeeDetails'
 import axios from 'axios'
 import { Testimonial_API_URL } from "../api/api";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+//import Col from "react-bootstrap/Col";
 
 function Home(props) {
   const [testimonial, setData] = useState([]);
@@ -20,7 +20,7 @@ function Home(props) {
     });
   }, []);
  
-   const shuffleArray = () =>{
+  const shuffleArray = () =>{
      let length  = testimonial.length - 1;
      for(; length > 0; length--){
        const finalArray = Math.floor(Math.random()*(length+1));
@@ -49,14 +49,15 @@ function Home(props) {
   // }
   // else{
   return (
-    <div>
-      <h2 className="h2text">Testimonial</h2>
+    <div className="parallax2">
+      <h1 className="text-uppercase">Testimonial</h1>
       <Nav.Link as={NavLink} to="/Services/">
         <button className="btn btn-dark btn btn-outline-light">
           Check Our Services Out!
         </button>
       </Nav.Link>
       <Row>
+        
         {shuffleArray(testimonial).slice(0,3).map((testimonialkey) => (
           <div className="col-lg-4" key={testimonial.testimonial_ID}>
           <Card >
