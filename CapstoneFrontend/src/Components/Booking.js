@@ -12,56 +12,89 @@ import { API_URL } from "../api/api";
 
 class Booking extends Component {
   //constructor() {
-    // const [startDate, setStartDate] = useState(new Date());
-    // const [value, onChange] = useState('10:00');
- 
-    
-    constructor(props) {
-      super(props)
-      this.state = {
-        timeslot: [],
-        services: [],
-        startDate: new Date()
-      };
-      this.handleChange = this.handleChange.bind(this);
-      this.onFormSubmit = this.onFormSubmit.bind(this);
-    }
+  // const [startDate, setStartDate] = useState(new Date());
+  // const [value, onChange] = useState('10:00');
 
-    handleChange(date) {
-      this.setState({
-        startDate: date
-      })
-    }
 
-    onFormSubmit(e) {
-      e.preventDefault();
-      console.log(this.state.startDate)
-    }
+  constructor(props) {
+    super(props)
+    this.state = {
+      // used for the form
+      selectedDate: new Date(),
+      selectedTimeslot: null,
+      selectedService: null,
 
-    componentDidMount() {
-      axios.get(Slots_API_URL,{ 
-        headers: {
-          Authorization: `JWT ${localStorage.getItem('token')}`
-        } }).then((res) => {
-        const timeslot = res.data;
-        this.setState({ timeslot });
-      });
-      axios.get(API_URL).then((res) => {
-        const services = res.data;
-        this.setState({services });
-      });
-    }
+      // used to display
+      timeslot: [],
+      services: [],
+    };
+    this.handleDateChange = this.handleDateChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
+  }
 
-    /*componentDidMount() {
-      axios.get(API_URL).then((res) => {
-        const services = res.data;
-        this.setState({ services });
-      });
-    }*/
 
-    
+  handleDateChange(e) {
+    console.log(e)
+     this.setState({
+      selectedDate: e
+    })
+    // API call to get available times for selected date
+     const dateString = e.toISOString().split('T')[0];
+     axios.get(Slots_API_URL, {
+       headers: {
+         Authorization: `JWT ${localStorage.getItem('token')}`,
+       },
+       params: {
+         date: dateString,
+       }
+     }).then(res => {
+       console.log(res.data);
+       this.setState({ timeslot: res.data })
+     })
+  }
 
-    render(){
+  handleSelectTimeslot(timeslot) {
+    this.setState({
+      selectedTimeslot: timeslot,
+    })
+  }
+
+  handleSelectService(service) {
+    this.setState({
+      selectedService: service,
+    })
+  }
+
+  onFormSubmit(e) {
+    e.preventDefault();
+    console.log(this.state.startDate)
+  }
+
+  async  componentDidMount() {
+    // API call to get all services
+     axios.get(API_URL).then((res) => {
+      const services = res.data;
+      console.log(services);
+      this.setState({ services });
+    });
+
+
+    // API call to get available times for selected date
+    const dateString = this.state.selectedDate.toISOString().split('T')[0];
+    await axios.get(Slots_API_URL, {
+      headers: {
+        Authorization: `JWT ${localStorage.getItem('token')}`,
+      },
+      params: {
+        date: dateString,
+      }
+    }).then(res => {
+      console.log(res.data);
+      this.setState({ timeslot: res.data })
+    })
+  }
+
+  render() {
     return (
       <div>
         <Row>
@@ -73,37 +106,37 @@ class Booking extends Component {
           <Col sm>
             <div className="d-flex flex-column">
               <h3 className="text-uppercase">Select Date</h3>
-              
+
               <div>
                 <DatePicker
-                  selected={this.state.startDate }
-                  onChange={ this.handleChange }
-                  fixedHeight
-                inline />*/
+                  selected={this.state.selectedDate}
+                  // onSelect={this.handleDateSelect}
+                  onChange={this.handleDateChange}
+                  inline
+                  name="selectedDate"
+                  dateFormat="dd/MM/yyyy"
+                   />
               </div>
             </div>
           </Col>
           <Col sm>
-          
+
             <div className="d-flex flex-column ">
               <h3 className="text-uppercase">Select Time</h3>
               {this.state.timeslot.map((key) => (
-              <div className="col-lg-4 col align-self-center" key={key.slots_ID}>
-                {/*<TimePicker
-                  onChange={onChange}
-                value={value} />*/}
-                <Button className="buttonSubmit">
-                  {key.time_slot}
-                </Button>
-              </div>
+                <div className="col-lg-4 col align-self-center" key={key.slots_ID}>
+                  <Button className="buttonSubmit" onClick={() => { this.handleSelectTimeslot(key) }}>
+                    {key.time_slot}
+                  </Button>
+                </div>
               ))}
             </div>
           </Col>
         </Row>
         <Row>
-        <Col>
-          <div className="d-flex justify-content-center">
-            <h3 className="text-uppercase">Select Service</h3>
+          <Col>
+            <div className="d-flex justify-content-center">
+              <h3 className="text-uppercase">Select Service</h3>
             </div>
           </Col>
         </Row>
@@ -111,37 +144,45 @@ class Booking extends Component {
           {this.state.services.map((key) => (
             <div className="col-lg-4" key={key.service_ID}>
               <Card style={{ width: '10rem' }}>
-                <div className="img-thumbnail">   
-                <Card.Img
-                  src={key.image}
-                  variant="top"
-                  alt="text" size="50%"
-                  key={key.id}
-                ></Card.Img>    
-                  
-                  </div>
+                <div className="img-thumbnail">
+                  <Card.Img
+                    src={key.image}
+                    variant="top"
+                    alt="text" size="50%"
+                    key={key.id}
+                  ></Card.Img>
+
+                </div>
                 <Card.Body>
                   <Card.Title className="text-uppercase">
                     {key.service_type}
                   </Card.Title>
                 </Card.Body>
-                <Card.Footer> 
+                <Card.Footer>
                   <span className="">{key.price_currency}</span>
                   {key.price === '0.00' ? (
                     <span>Free</span>
                   ) : (
-                    <span>{key.price}</span>
-                  )
-                 }
+                      <span>{key.price}</span>
+                    )
+                  }
                 </Card.Footer>
-                <Button className="buttonSubmit">
+                <Button className="buttonSubmit" onClick={() => { this.handleSelectService(key) }}>
                   This one!
                 </Button>
               </Card>
             </div>
           ))}
         </Row>
-      </div>
+
+        <Button onClick={() => {
+          alert(JSON.stringify({
+            selectedDate: this.state.selectedDate,
+            selectedService: this.state.selectedService,
+            selectedTimeslot: this.state.selectedTimeslot
+          }))
+        }}> Check out!</Button>
+      </div >
     );
   }
 }

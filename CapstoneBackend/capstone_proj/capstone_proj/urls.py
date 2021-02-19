@@ -37,7 +37,7 @@ router.register(r'PromotionAPI',promotion_views.PromotionViewSet)
 router.register(r'RoleAPI', role_views.RoleViewSet )
 router.register(r'ServiceNailAPI', serviceNail_views.ServiceNailViewSet )
 router.register(r'TestimonialAPI', testimonial_views.TestimonialViewSet )
-router.register(r'SlotsAPI', slots_views.SlotsViewSet)
+router.register(r'SlotsAPI', slots_views.SlotsViewSet, 'Slots')
 
 
 urlpatterns = [
@@ -45,5 +45,6 @@ urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('token-auth/', obtain_jwt_token),
-    path('core/', include('core.urls'))
+    path('core/', include('core.urls')),
+    # path('SlotsAPI/',include('slots.urls'))
 ]
