@@ -9,7 +9,7 @@ import Footer from "./Components/Footer"
 import Services from "./Components/Services"
 import Booking from  "./Components/Booking"
 import Main from "./Components/Main"
-
+import StepForm from "./Components/StepForm"
 
 
 class App extends Component {
@@ -102,7 +102,7 @@ render(){
             <Route exact path="/" component={Main} />
         <Layout>  
             <Route path="/Services" component={Services}/>
-            <Route path="/Booking" component={Booking}/>
+            <Route path="/Booking" component={StepForm}/>
         </Layout>
       </HashRouter>
           <Footer/>  

@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { Slots_API_URL } from "../api/api";
 import { API_URL } from "../api/api";
-
+import CheckOut from "./CheckOut"
 
 class Booking extends Component {
   //constructor() {
@@ -68,6 +68,12 @@ class Booking extends Component {
     e.preventDefault();
     console.log(this.state.startDate)
   }
+
+
+  continue = e => {
+    e.preventDefault();
+    this.props.nextStep();
+}
 
   async  componentDidMount() {
     // API call to get all services
@@ -173,14 +179,18 @@ class Booking extends Component {
             </div>
           ))}
         </Row>
-
-        <Button onClick={() => {
+        
+        {/* {this.state.selectedService != null && this.state.selectedTimeslot ? (
+        <CheckOut date ={this.state.selectedDate} service={this.state.selectedService} timeslot={this.state.selectedTimeslot}/>)
+        : ( null ) } */}
+        <Button onClick={this.continue}>Next</Button>
+        {/* <Button onClick={() => {
           alert(JSON.stringify({
             selectedDate: this.state.selectedDate,
             selectedService: this.state.selectedService,
             selectedTimeslot: this.state.selectedTimeslot
           }))
-        }}> Check out!</Button>
+        }}> Check out!</Button> */}
       </div >
     );
   }
