@@ -9,7 +9,7 @@ class ServiceNail(models.Model):
    price = MoneyField(verbose_name="Price", max_digits=14, decimal_places=2  ,default_currency='SGD')
 
    def __str__(self):
-      return (str(self.service_ID))+" - "+(self.service_type)
+      return (str(self.service_ID))+" - "+(str(self.service_type))
 
    class Meta:
       db_table = "servicenail"

@@ -19,7 +19,9 @@ class App extends Component {
     this.state = {
       logged_in: localStorage.getItem('token') ? true : false,
       username: '',
-      errors:{}
+      email: '',
+      contact:'', 
+      id:'',
     };
   }
 
@@ -32,15 +34,20 @@ class App extends Component {
       })
         .then(res => res.json())
         .then(json => {
-          this.setState({ username: json.username });
+          this.setState({ username: json.username,
+                          email : json.email,
+                          contact: json.contact,
+                          id: json.id
+                         
+          }           
+            ); 
         });
     }
   }
 
  handle_login = (e, data) => {
     e.preventDefault();
-    try{
-    const response = fetch('http://localhost:8000/token-auth/', {
+    fetch('http://localhost:8000/token-auth/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -49,19 +56,13 @@ class App extends Component {
     })
       .then(res => res.json())
       .then(json => {
+        console.log(json)
         localStorage.setItem('token', json.token);
         this.setState({
           logged_in: true,
           username: json.user.username 
         });
       });
-      return response
-    }catch(error) {
-      console.log(error.stack);
-      this.setState({
-          errors:error.response.data
-      });
-    }
   };
 
     handle_signup = (e, data) => {
@@ -97,12 +98,11 @@ render(){
           handle_logout={this.handle_logout}
           handle_signup={this.handle_signup}
           username={this.state.username}
-          error={this.state.errors}
         />
             <Route exact path="/" component={Main} />
         <Layout>  
             <Route path="/Services" component={Services}/>
-            <Route path="/Booking" component={StepForm}/>
+            <Route path="/Booking" exact render={() => <StepForm name={this.state.username} email={this.state.email} contact={this.state.contact} id={this.state.id}/>}/>
         </Layout>
       </HashRouter>
           <Footer/>  

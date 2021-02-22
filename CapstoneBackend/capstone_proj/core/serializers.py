@@ -11,10 +11,10 @@ from django.contrib.auth import authenticate
 
 
 class UserSerializer(serializers.ModelSerializer):
-
+    contact = serializers.CharField(source='profile.contact')
     class Meta:
         model = User
-        fields = ('username',)
+        fields = ('id','username','email','contact',)
 
 
 

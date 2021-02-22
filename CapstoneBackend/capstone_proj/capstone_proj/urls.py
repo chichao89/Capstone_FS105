@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from booking import views as booking_views
 from imageFiles import views as image_views
 from product import views as product_views
 from profileuser import views as profile_views
@@ -29,7 +28,6 @@ from rest_framework_jwt.views import obtain_jwt_token
 
 
 router = routers.DefaultRouter()
-router.register(r'BookingAPI', booking_views.BookingViewSet, 'Booking')
 router.register(r'ImageFilesAPI', image_views.ImageFilesViewSet)
 router.register(r'ProductAPI', product_views.ProductViewSet)
 router.register(r'ProfileAPI', profile_views.ProfileViewSet)
@@ -46,5 +44,6 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('token-auth/', obtain_jwt_token),
     path('core/', include('core.urls')),
+    path('booking/',include('booking.urls'))
     # path('SlotsAPI/',include('slots.urls'))
 ]

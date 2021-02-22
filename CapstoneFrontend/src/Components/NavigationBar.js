@@ -129,7 +129,6 @@ function NavigationBar(props) {
                 onChange={handleUserNameChange}
                 required
               ></input>
-              { props.errors ? props.errors: null}
               <label htmlFor="pwd" class="ms-2 mt-2">
                 Password:
               </label>
