@@ -12,6 +12,7 @@ class Promotion(models.Model):
    promo_description = models.CharField(verbose_name="Promotion Description", max_length=500)
    promo_start = models.DateTimeField(verbose_name="Promotion Start")
    promo_end = models.DateTimeField(verbose_name="Promotion End")
+   image = models.ForeignKey(to='imageFiles.ImageFiles', on_delete=models.CASCADE,blank=True, null=True)
 
    def __str__(self):
       return (str(self.Promotion_ID))+" - "+(self.promo_type)

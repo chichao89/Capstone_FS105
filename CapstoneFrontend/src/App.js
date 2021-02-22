@@ -10,6 +10,8 @@ import Services from "./Components/Services"
 import Booking from  "./Components/Booking"
 import Main from "./Components/Main"
 import StepForm from "./Components/StepForm"
+import Promo from "./Components/Promo"
+
 
 
 class App extends Component {
@@ -103,6 +105,7 @@ render(){
         <Layout>  
             <Route path="/Services" component={Services}/>
             <Route path="/Booking" component={StepForm}/>
+            <Route path="/Promo" component={Promo}/>
         </Layout>
       </HashRouter>
           <Footer/>  
