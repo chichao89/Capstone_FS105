@@ -182,6 +182,9 @@ function NavigationBar(props) {
                 name="password"
                 className="form-control"
                 id="password"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+                required
                 value={signUp.password}
                 onChange={handleSignUpPasswordChange}
               ></input>
@@ -193,6 +196,7 @@ function NavigationBar(props) {
                 name="repassword"
                 className="form-control"
                 id="repassword"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 value={signUp.repassword}
                 onChange={handleSignUpRePasswordChange}
               ></input>
@@ -200,12 +204,13 @@ function NavigationBar(props) {
                 Email Address:
               </label>
               <input
-                type="text"
+                type="email"
                 name="email"
                 className="form-control"
                 id="email"
                 value={signUp.email}
                 onChange={handleSignUpEmailChange}
+               required="required"
               ></input>
               <label htmlFor="address" class="ms-2 mt-2">
                 Address:
@@ -215,6 +220,7 @@ function NavigationBar(props) {
                 name="address"
                 className="form-control"
                 id="address"
+                
                 value={signUp.address}
                 onChange={handleSignUpAddressChange}
               ></input>
@@ -227,7 +233,8 @@ function NavigationBar(props) {
                 id="phone"
                 name="phone"
                 className="form-control"
-                pattern="[0-9]{8}"
+               pattern="[0-9]{8}"
+               title = "Please enter your 8 digit contact number."
                 value={signUp.contact}
                 onChange={handleSignUpContactChange}
               ></input>
@@ -275,6 +282,9 @@ function NavigationBar(props) {
           <Nav className="mx-auto">
             <Nav.Link className="link2" as={NavLink} to="/" exact>
               Home
+            </Nav.Link>
+            <Nav.Link className="link2" as={NavLink} to="/Promo">
+              Promotions
             </Nav.Link>
             <Nav.Link className="link2" as={NavLink} to="/Services">
               Services
