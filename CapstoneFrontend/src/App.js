@@ -104,11 +104,8 @@ render(){
             <Route exact path="/" component={Main} />
         <Layout>  
             <Route path="/Services" component={Services}/>
-<<<<<<< HEAD
             <Route path="/Booking" exact render={() => <StepForm name={this.state.username} email={this.state.email} contact={this.state.contact} id={this.state.id}/>}/>
-=======
             <Route path="/Promo" component={Promo}/>
->>>>>>> 3b4a6bc7c9c2b791ed7b617e2cae5f88b7ce659e
         </Layout>
       </HashRouter>
           <Footer/>  
