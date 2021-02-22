@@ -40,7 +40,7 @@ class CheckOut extends Component {
     // console.log(token);
     axios.post(url, data, options)
     .then(res => {
-      console.log('success', res.data);
+      alert('success', res.data);
     }).catch(err => console.log(err))
       
   }
