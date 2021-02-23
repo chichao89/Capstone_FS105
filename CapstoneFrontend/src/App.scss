@@ -1,9 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 
 html {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+}
+.navbar-brand {
+    color: black !important;
+}
+
+.nav-link{
+    color: black !important;
+}
+.nav-link{
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-family: 'Courgette', cursive;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-family: 'Courgette', cursive;
+    font-size: 1.35rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.text-uppercase {
+    text-transform: lowercase!important;
+}
+.h1 {
+    font-size: 1.5rem !important;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-family: 'Courgette', cursive;
+    font-weight: bold;
+    color: black;
 }
 
 *, *:before, *:after {
@@ -22,7 +69,7 @@ body {
     margin:  0;
     padding: 0;
     line-height: 1;
-    font-family: 'Permanent Marker';
+    font-family: 'Courgette', cursive;
     color: #202020;
     background-color: #fff;
     font-smooth: always;
@@ -40,23 +87,22 @@ body {
 }
 
 .slogan{
-    color: #eab5b5;
-    text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000; 
+    color: #ff9aa2;
+    font-family: 'Courgette', cursive;
+    font-size: 10px;
+    
 }
 
 .display-6{
     
     color: #ff9aa2 !important;
+    //mix-blend-mode: difference;
     /*-webkit-animation: glow 1s ease-in-out infinite alternate;
       -moz-animation: glow 1s ease-in-out infinite alternate;*/
     animation: glow 1s ease-in-out infinite alternate!important;
   }
 
-  @keyframes glow {
+  /*@keyframes glow {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #949092,
         0 0 40px #c7ceea, 0 0 50px #b5ead7, 0 0 60px #e3fdcb, 0 0 70px #ffdac1;
@@ -78,11 +124,11 @@ body {
     100% {
       color: #ffdac1;
     }
-  }
+  }*/
 
 //nav bar
 .bg-dark{
-    background-color: #ffb7b2!important;
+    background-color: #b8e0f6!important;
 }
 
 .container{
@@ -103,7 +149,7 @@ body {
     height: 0.2em;
     display: block;
     right:0;
-    background: #fff;
+    background: rgb(255, 255, 255);
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
 }
@@ -116,9 +162,9 @@ body {
 
 //jumbotron
 .jumbotron-fluid, .parallax{
-    // background-attachment: fixed;
+  background-attachment: fixed;
   background-image:
-  linear-gradient(to top, (#ff9aa24f, #ffb7b22a, #ffdac12a, #e2f0cb4b), (#e2f0cb52, #b5ead736, #c7ceea52)),
+  linear-gradient(to top, (#ff9aa2b0, #ffb7b22a, #ffdac12a, #e2f0cb4b), (#e2f0cb52, #b5ead736, #c7ceea52)),
   url('./Assets/naillogo.jpeg');
   background-size: cover;
   background-position: center;
@@ -144,7 +190,7 @@ body {
 
 /*footer*/
 footer {
-    background:#ffb7b298
+    background:#b8e0f6
 }
 
 //story page
@@ -170,11 +216,11 @@ footer input[type=text],input[type=email]{
 
 //to create the search button look
 .buttonSearch{
-    border: 2px solid #fff;
+    border: 1px solid #fff;
     font-weight: 300;
     text-transform: uppercase;
     font-size: 1rem;
-    color: #fff;
+    color: black;
     background: none;
     margin-left: 0.8rem;
     padding: .7rem;   
@@ -253,7 +299,7 @@ hr{
 
 //coffeeDetails Page
 .single{
-    background: #f7f6fc;
+    background: #f7f6fc49;
     padding: 1rem 1.5rem;
     font-size:1.1rem;
     line-height: 1.2rem;
@@ -347,7 +393,7 @@ hr{
     top: 0px;
     width: 100%;
     height: 100%;
-    background: rgba(130, 248, 232, 0.712);
+    background: rgba(130, 248, 232, 0.911);
     opacity: 0;
 }
 
@@ -389,4 +435,6 @@ span{
     {
     background-size: 100% 50%;
     }
+    
+   
   }
