@@ -46,6 +46,9 @@ class Services extends Component {
                   <Card.Title className="text-uppercase">
                     {key.service_type}
                   </Card.Title>
+                  <Card.Title className="text-uppercase">
+                    {key.duration}
+                  </Card.Title>
                 </Card.Body>
                 <Card.Footer> 
                   <span className="">{key.price_currency}</span>

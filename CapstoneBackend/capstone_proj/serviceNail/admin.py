@@ -3,4 +3,4 @@ from .models import ServiceNail
 # Register your models here.
 @admin.register(ServiceNail)
 class ServiceNailAdmin(admin.ModelAdmin):
-    list_display = ('service_ID','image','service_type','service_description','price',)
+    list_display = ('service_ID','service_type','service_description','duration','price','image')

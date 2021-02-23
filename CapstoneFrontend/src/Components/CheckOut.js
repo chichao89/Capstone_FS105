@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Row, Col, Form, ListGroup } from "react-bootstrap";
 import axios from "axios";
+import { Booking_API_URL } from "../api/api";
 
 
 class CheckOut extends Component {
@@ -28,9 +29,6 @@ class CheckOut extends Component {
         time: this.props.selectedTimeslot['slots_ID']
     }
 
-    const data_final = JSON.stringify(data)
-    console.log(data_final)
-    let url = 'http://127.0.0.1:8000/booking/Booking/';
     const options = {
       headers: {
           'Content-Type': 'application/json',
@@ -38,7 +36,7 @@ class CheckOut extends Component {
     };
     
     // console.log(token);
-    axios.post(url, data, options)
+    axios.post(Booking_API_URL, data, options)
     .then(res => {
       alert('success', res.data);
     }).catch(err => console.log(err))

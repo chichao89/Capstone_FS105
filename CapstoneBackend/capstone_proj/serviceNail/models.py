@@ -7,6 +7,7 @@ class ServiceNail(models.Model):
    service_type = models.CharField(verbose_name="Service Type", max_length=30)
    service_description = models.TextField(verbose_name="Service Description", max_length=500)
    price = MoneyField(verbose_name="Price", max_digits=14, decimal_places=2  ,default_currency='SGD')
+   duration =models.CharField(verbose_name="Duration", blank=True, null=True, max_length=10)
 
    def __str__(self):
       return (str(self.service_ID))+" - "+(str(self.service_type))

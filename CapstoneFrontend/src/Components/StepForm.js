@@ -125,7 +125,7 @@ class StepForm extends Component {
 
         return(
             <>
-                <h2>Step {step} of 3.</h2>
+                <h2>Step {step} of 2.</h2>
                 {this.showStep()}
             </>
         );

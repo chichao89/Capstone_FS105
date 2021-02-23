@@ -4,4 +4,4 @@ from .models import Slots
 
 @admin.register(Slots)
 class SlotsAdmin(admin.ModelAdmin):
-    list_display = ('slots_ID','time_slot','date',)
+    list_display = ('slots_ID','time_slot','date','is_booked')
