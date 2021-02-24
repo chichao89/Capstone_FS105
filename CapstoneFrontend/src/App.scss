@@ -237,6 +237,25 @@ footer input[type=text],input[type=email]{
     padding: .7rem;
 }
 
+.buttonDisabled{
+    border: 2px solid rgb(10, 0, 0);
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: grey;
+    background: none;
+    margin-left: 0.8rem;
+    padding: .7rem;
+    text-decoration: line-through;
+    text-decoration-thickness: 30%;
+}
+
+
+.but[disabled]:hover {
+    text-decoration: line-through;
+    text-decoration-thickness: 30%;
+}
+
 
 /*social media*/
 .cl{

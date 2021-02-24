@@ -203,7 +203,7 @@ function NavigationBar(props) {
                 Email Address:
               </label>
               <input
-                type="email"
+                type="text"
                 name="email"
                 className="form-control"
                 id="email"
@@ -228,11 +228,11 @@ function NavigationBar(props) {
               </label>
               <br />
               <input
-                type="tel"
+                type="text"
                 id="phone"
                 name="phone"
                 className="form-control"
-               pattern="[0-9]{8}"
+               pattern="[8-9]{1}[0-9]{7}"
                title = "Please enter your 8 digit contact number."
                 value={signUp.contact}
                 onChange={handleSignUpContactChange}

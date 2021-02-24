@@ -99,6 +99,7 @@ class Booking extends Component {
                   inline
                   name="selectedDate"
                   dateFormat="dd/MM/yyyy"
+                  minDate={new Date()}
                 />
               </div>
             </div>
@@ -107,31 +108,48 @@ class Booking extends Component {
             <div className="d-flex flex-column ">
               <h3 className="text-uppercase">Select Time</h3>
               {timeslot.map((key) => {
-                let disabled = false;
-
-                if (
-                  selectedTimeslot &&
-                  key.slots_ID === selectedTimeslot.slots_ID
-                ) {
-                  disabled = true;
-                }
-
-                return (
-                  <div
-                    className="col-lg-4 col align-self-center"
-                    key={key.slots_ID}
-                  >
-                    <Button
-                      disabled={disabled}
-                      className="buttonSubmit"
-                      onClick={() => {
-                        handleSelectTimeslot(key);
-                      }}
+                if (key.is_booked === true)
+                {
+                  return(
+                    <div
+                      className="col-lg-4 col align-self-center"
                     >
-                      {key.time_slot}
-                    </Button>
-                  </div>
-                );
+                    <Button
+                    variant="secondary"
+                    disabled
+                    className="buttonDisabled but"
+                  >{key.time_slot}</Button>
+                  </div>)
+                }
+                else
+                {
+                  let disabled = false;
+
+                  if (
+                    selectedTimeslot &&
+                    key.slots_ID === selectedTimeslot.slots_ID
+                  ) {
+                    disabled = true;
+                  }
+  
+                  return (
+                    <div
+                      className="col-lg-4 col align-self-center"
+                      key={key.slots_ID}
+                    >
+                      <Button
+                        disabled={disabled}
+                        className="buttonSubmit"
+                        onClick={() => {
+                          handleSelectTimeslot(key);
+                        }}
+                      >
+                        {key.time_slot}
+                      </Button>
+                    </div>
+                  );
+                }
+              
               })}
             </div>
           </Col>
@@ -169,6 +187,9 @@ class Booking extends Component {
                     <Card.Title className="text-uppercase">
                       {key.service_type}
                     </Card.Title>
+                    <Card.Title className="text-uppercase">
+                    {key.duration}
+                  </Card.Title>
                   </Card.Body>
                   <Card.Footer>
                     <span className="">{key.price_currency}</span>
@@ -196,22 +217,6 @@ class Booking extends Component {
         
         {selectedService === null || selectedTimeslot === null || timeslot.length === 0 ? (
         <Button disabled onClick={this.continue}>Next</Button>) : (<Button onClick={this.continue}>Next</Button> )}
-        
-        {/* <Button
-          onClick={() => {
-            alert(
-              JSON.stringify({
-                selectedDate: this.props.selectedDate,
-                selectedService: this.props.selectedService,
-                selectedTimeslot: this.props.selectedTimeslot,
-                timeslot: this.props.timeslot
-              })
-            );
-          }}
-        >
-          {" "}
-          Check out!
-        </Button> */}
       </div>
     );
   }

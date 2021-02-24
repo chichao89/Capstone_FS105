@@ -5,6 +5,13 @@ import { Booking_API_URL } from "../api/api";
 
 
 class CheckOut extends Component {
+  constructor(props){
+    super(props)
+    this.state ={
+      submit : false
+    };
+
+  }
 
   continue = (e) => {
     e.preventDefault();
@@ -38,26 +45,17 @@ class CheckOut extends Component {
     // console.log(token);
     axios.post(Booking_API_URL, data, options)
     .then(res => {
-      alert('success', res.data);
+      alert('Booking is Successful, See you on that Day!', res.data);
+      this.setState({submit:true});
     }).catch(err => console.log(err))
       
   }
-//     axios.post(url, {data})
-//         .then(res => {
-//             console.log('success', res.data);
-//         })
-//         .catch(err => console.log(err))
-// };
-
 
   render() {
     const {
       selectedDate,
       selectedTimeslot,
       selectedService,
-      timeslot,
-      services,
-      id,
     } = this.props;
     const dateString = new Date(selectedDate.getTime() - (selectedDate.getTimezoneOffset() * 60000 ))
     .toISOString()
@@ -65,9 +63,11 @@ class CheckOut extends Component {
     const name = this.props.name
     const email = this.props.email
     const contact= this.props.contact
-    const selectedServiceID = selectedService['service_ID']
-    const slotID = selectedTimeslot['slots_ID']
-    const selectedPrice = selectedService['price']
+    const slot = selectedTimeslot['time_slot']
+    const service_type = selectedService['service_type']
+    const price_currency = selectedService['price_currency']
+    const service_duration = selectedService['duration']
+    const price = selectedService['price']
     return (
       <Form>
       <div className="form-container p-3 mb-2 bg-white text-dark">
@@ -81,6 +81,7 @@ class CheckOut extends Component {
               <ListGroup.Item>Booking Date:</ListGroup.Item>
               <ListGroup.Item>TimeSlot:</ListGroup.Item>
               <ListGroup.Item>Service Required:</ListGroup.Item>
+              <ListGroup.Item>Duration:</ListGroup.Item>
               <ListGroup.Item>Price:</ListGroup.Item>
             </ListGroup>
           </Col>
@@ -90,71 +91,20 @@ class CheckOut extends Component {
               <ListGroup.Item variant="info">{email}</ListGroup.Item>
               <ListGroup.Item variant="info">{contact}</ListGroup.Item>
               <ListGroup.Item variant="info">{dateString}</ListGroup.Item>
-              {timeslot
-                .filter((key) => key.slots_ID === selectedTimeslot.slots_ID)
-                .map((filteredslot) => (
-                  <ListGroup.Item variant="info" key={filteredslot.slots_ID}>
-                    {filteredslot.time_slot}
-                  </ListGroup.Item>
-                ))}
-              {services
-                .filter((key) => key.service_ID === selectedService.service_ID)
-                .map((filteredservice) => (
-                  <>
-                  <ListGroup.Item
-                    variant="info"
-                    key={filteredservice.service_ID}
-                  >
-                    {filteredservice.service_type}
-                  </ListGroup.Item>
-                  <ListGroup.Item
-                     variant="info"
-                   >
-                      <span>{filteredservice.price_currency}</span>{filteredservice.price}
-                   </ListGroup.Item>
-                  </>
-                ))}
+              <ListGroup.Item variant="info">{slot}</ListGroup.Item>
+              <ListGroup.Item variant="info">{service_type}</ListGroup.Item>
+              <ListGroup.Item variant="info">{service_duration}</ListGroup.Item>
+              <ListGroup.Item variant="info"><span>{price_currency}</span>{price}</ListGroup.Item>
             </ListGroup>
           </Col>
         </Row>
         <Row className="m-5">
           <Col>
-            <Button className="m-2" onClick={this.back}>Back</Button>
-            <Button className="m-2" onClick={this.handleSubmit}>Submit</Button>
+            <Button className="m-2" disabled={this.state.submit} onClick={this.back}>Back</Button>
+            <Button className="m-2" disabled={this.state.submit} onClick={this.handleSubmit}>Submit</Button>
           </Col>
         </Row>
 
-
-
-        {/* <Button
-          onClick={() => {
-            alert(
-              JSON.stringify({
-                selectedDate: this.props.selectedDate,
-                selectedService: this.props.selectedService,
-                selectedTimeslot: this.props.selectedTimeslot,
-                timeslot: this.props.timeslot
-              })
-            );
-          }}
-        >
-          {" "}
-          Check out!
-        </Button> */
-        
-                          //  alert(
-                  //   JSON.stringify({
-                  //     id,
-                  //     selectedServiceID,
-                  //     selectedPrice,
-                  //     dateString,
-                  //     slotID
-                  //   })
-                  // );
-        
-        
-        
-        }
       </div>
       </Form>
     );
