@@ -4,7 +4,11 @@ from core.serializers import UserSerializer
 from django.contrib.auth.models import User
 from serviceNail.models import ServiceNail
 from slots.models import Slots
+from profileuser.models import Profile
 from djmoney.contrib.django_rest_framework import MoneyField
+from django.core.mail import send_mail
+from django.conf import settings
+    
 
 class BookingSerializer(serializers.ModelSerializer):
     user_id = serializers.IntegerField()
@@ -12,6 +16,7 @@ class BookingSerializer(serializers.ModelSerializer):
     price = MoneyField(max_digits=14, decimal_places=2)
     date = serializers.DateField()
     time = serializers.CharField()
+
        
     def create(self, validated_data):
         # instance = self.Meta.model(**validated_data)
@@ -19,7 +24,9 @@ class BookingSerializer(serializers.ModelSerializer):
         user = User.objects.get(id=validated_data['user_id'])
         service = ServiceNail.objects.get(service_ID=validated_data['service'])
         time = Slots.objects.get(slots_ID=validated_data['time'])
-
+        # profile = Profile.objects.get(User=user)
+        # print(user)
+        # print(profile)
         time.is_booked = True
         time.save()
 
@@ -31,6 +38,16 @@ class BookingSerializer(serializers.ModelSerializer):
             time = time
         )
         instance.save()
+
+        subject = 'iNailForFung Booking Confirmation'
+        message = ('Thank you for choosing iNailForFung Services. I am pleased to confirm your booking as below:\n' +'Username:' + str(user) +'\n'
+                   +'Price:' +  str(validated_data['price'])+'\n'
+                   +'Date of Booking:' + str(validated_data['date'])+'\n'
+                   +'Service Type:' + str(service)+'\n'
+                   +'Time Booked:' + str(time)+'\n')
+        email_from = settings.EMAIL_HOST_USER
+        recipient_list = ['djangocapstone@gmail.com',]
+        send_mail( subject, message, email_from, recipient_list )
         return instance
    
     #     return category  
