@@ -12,6 +12,10 @@ import Main from "./Components/Main"
 import StepForm from "./Components/StepForm"
 import Promo from "./Components/Promo"
 
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications';
+
+
 
 
 class App extends Component {
@@ -115,6 +119,7 @@ render(){
             <Route path="/Services" component={Services}/>
             <Route path="/Booking" exact render={() => <StepForm name={this.state.username} email={this.state.email} contact={this.state.contact} id={this.state.id}/>}/>
             <Route path="/Promo" component={Promo}/>
+            <NotificationContainer />
         </Layout>
       </HashRouter>
           <Footer/>  
