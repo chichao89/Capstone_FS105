@@ -47,7 +47,7 @@ class App extends Component {
     }
   }
 
- handle_login = (e, data) => {
+  handle_login = (e, data) => {
     e.preventDefault();
     fetch('http://localhost:8000/token-auth/', {
       method: 'POST',
@@ -56,14 +56,23 @@ class App extends Component {
       },
       body: JSON.stringify(data)
     })
-      .then(res => res.json())
+      .then(res => {
+        if (res.status != 200) {
+          return Promise.reject(new Error('Login Failed'));
+        }
+
+        return res.json()
+      })
       .then(json => {
         console.log(json)
         localStorage.setItem('token', json.token);
         this.setState({
           logged_in: true,
-          username: json.user.username 
+          username: json.user.username
         });
+      })
+      .catch(err => {
+        alert(err.message);
       });
   };
 

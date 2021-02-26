@@ -7,8 +7,6 @@ import Col from "react-bootstrap/Col";
 
 function NavigationBar(props) {
   //state of logged_in
-
-
   const [values, setValues] = useState({
     username: "",
     password: "",
@@ -90,6 +88,10 @@ function NavigationBar(props) {
     }));
   };
   
+  const close = (event) => {
+    setValues("") 
+    setInShow(false)
+  }
 
   // function handleSubmit(e) {
   //   e.preventDefault();
@@ -144,7 +146,7 @@ function NavigationBar(props) {
               <Modal.Footer>
                 <Button variant="outline-light"
                   className="buttonSubmit"
-                  onClick={() => setInShow(false)}
+                  onClick={() => close()}
                 >
                   Close
                 </Button>

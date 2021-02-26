@@ -7,7 +7,7 @@ import { Testimonial_API_URL } from "../api/api";
 import Row from "react-bootstrap/Row";
 
 
-function Home(props) {
+function Home() {
   const [testimonial, setData] = useState([]);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ function Home(props) {
       </Nav.Link>
       <Row>
         {shuffleArray(testimonial).slice(0,3).map((testimonialkey) => (
-          <div className="col-lg-4" key={testimonial.testimonial_ID}>
+          <div className="col-lg-4" key={testimonialkey.testimonial_ID}>
           <Card >
             <Card.Img
               variant="top"

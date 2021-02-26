@@ -10,58 +10,6 @@ import { API_URL } from "../api/api";
 import CheckOut from "./CheckOut";
 
 class Booking extends Component {
-  constructor(props) {
-    super(props);
-    //this.state = {
-    // used for the form
-    // selectedDate: new Date(),
-    // selectedTimeslot: null,
-    // selectedService: null,
-
-    // used to display
-    // timeslot: [],
-    // services: [],
-    //};
-    // this.handleDateChange = this.handleDateChange.bind(this);
-    // this.onFormSubmit = this.onFormSubmit.bind(this);
-  }
-
-  // handleDateChange(e) {
-  //   console.log(e)
-  //    this.setState({
-  //     selectedDate: e
-  //   })
-  //   // API call to get available times for selected date
-  //    const dateString = e.toISOString().split('T')[0];
-  //    axios.get(Slots_API_URL, {
-  //      headers: {
-  //        Authorization: `JWT ${localStorage.getItem('token')}`,
-  //      },
-  //      params: {
-  //        date: dateString,
-  //      }
-  //    }).then(res => {
-  //      console.log(res.data);
-  //      this.setState({ timeslot: res.data })
-  //    })
-  // }
-
-  // handleSelectTimeslot(timeslot) {
-  //   this.setState({
-  //     selectedTimeslot: timeslot,
-  //   })
-  // }
-
-  // handleSelectService(service) {
-  //   this.setState({
-  //     selectedService: service,
-  //   })
-  // }
-
-  // onFormSubmit(e) {
-  //   e.preventDefault();
-  //   console.log(this.state.startDate)
-  // }
 
   continue = (e) => {
     e.preventDefault();
