@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import { Promo_API_URL } from "../api/api";
+import Countdown from "./Countdown";
 
 
 class Promo extends Component {
@@ -26,6 +27,7 @@ class Promo extends Component {
   render() {
     return (
       <div>
+        
         <Row>
           <Col>
             <h1 className="text-uppercase">Promos</h1>
@@ -34,6 +36,7 @@ class Promo extends Component {
         <Row>
          {this.state.promo.map((key) => (
             <div className="col-lg-4" key={key.Promotion_ID}>
+              <Countdown futureDate={key.promo_start}></Countdown>
               <Card>
                 <div className="effect-image-1">   
                 <Card.Img
