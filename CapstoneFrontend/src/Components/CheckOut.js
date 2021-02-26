@@ -1,16 +1,21 @@
 import React, { Component } from "react";
-import { Button, Row, Col, Form, ListGroup } from "react-bootstrap";
+import { Button, Row, Col, Form, ListGroup,Alert } from "react-bootstrap";
 import axios from "axios";
 import { Booking_API_URL } from "../api/api";
-
+// React Notification
+import { NotificationManager } from 'react-notifications';
 
 class CheckOut extends Component {
   constructor(props){
     super(props)
     this.state ={
-      submit : false
+      submit : false,
+      show : true
     };
+  }
 
+  setShow = (e) => {
+    this.setState({show:e})
   }
 
   continue = (e) => {
@@ -45,8 +50,9 @@ class CheckOut extends Component {
     // console.log(token);
     axios.post(Booking_API_URL, data, options)
     .then(res => {
-      alert('Booking is Successful, See you on that Day!', res.data);
+      // alert('Booking is Successful, See you on that Day!', res.data);
       this.setState({submit:true});
+      NotificationManager.success('Successful!','Booking Confirmation Email', 8000);
     }).catch(err => console.log(err))
       
   }
