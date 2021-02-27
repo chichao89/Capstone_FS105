@@ -422,6 +422,12 @@ span{
     padding: 0.2em;
 }
 
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+
 
 //media screen display
 @media screen and (max-width: 768px) {
@@ -446,6 +452,7 @@ span{
     background-size: 100% 50%;
     }
     
+       
    
    
   }
