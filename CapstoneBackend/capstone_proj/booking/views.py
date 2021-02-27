@@ -5,6 +5,7 @@ from .serializers import BookingSerializer
 from rest_framework import permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
 # Create your views here.
 
 class BookingList(APIView):
@@ -27,3 +28,7 @@ class BookingList(APIView):
     #         return Booking.objects.filter(user_id=user_id)
     # permission_classes = (ReadOnly,)
     # permission_classes = (IsAuthenticated)
+
+
+
+    

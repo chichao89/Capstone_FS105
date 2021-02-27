@@ -10,58 +10,6 @@ import { API_URL } from "../api/api";
 import CheckOut from "./CheckOut";
 
 class Booking extends Component {
-  constructor(props) {
-    super(props);
-    //this.state = {
-    // used for the form
-    // selectedDate: new Date(),
-    // selectedTimeslot: null,
-    // selectedService: null,
-
-    // used to display
-    // timeslot: [],
-    // services: [],
-    //};
-    // this.handleDateChange = this.handleDateChange.bind(this);
-    // this.onFormSubmit = this.onFormSubmit.bind(this);
-  }
-
-  // handleDateChange(e) {
-  //   console.log(e)
-  //    this.setState({
-  //     selectedDate: e
-  //   })
-  //   // API call to get available times for selected date
-  //    const dateString = e.toISOString().split('T')[0];
-  //    axios.get(Slots_API_URL, {
-  //      headers: {
-  //        Authorization: `JWT ${localStorage.getItem('token')}`,
-  //      },
-  //      params: {
-  //        date: dateString,
-  //      }
-  //    }).then(res => {
-  //      console.log(res.data);
-  //      this.setState({ timeslot: res.data })
-  //    })
-  // }
-
-  // handleSelectTimeslot(timeslot) {
-  //   this.setState({
-  //     selectedTimeslot: timeslot,
-  //   })
-  // }
-
-  // handleSelectService(service) {
-  //   this.setState({
-  //     selectedService: service,
-  //   })
-  // }
-
-  // onFormSubmit(e) {
-  //   e.preventDefault();
-  //   console.log(this.state.startDate)
-  // }
 
   continue = (e) => {
     e.preventDefault();
@@ -99,6 +47,7 @@ class Booking extends Component {
                   inline
                   name="selectedDate"
                   dateFormat="dd/MM/yyyy"
+                  minDate={new Date()}
                 />
               </div>
             </div>
@@ -107,31 +56,48 @@ class Booking extends Component {
             <div className="d-flex flex-column ">
               <h3 className="text-uppercase">Select Time</h3>
               {timeslot.map((key) => {
-                let disabled = false;
-
-                if (
-                  selectedTimeslot &&
-                  key.slots_ID === selectedTimeslot.slots_ID
-                ) {
-                  disabled = true;
-                }
-
-                return (
-                  <div
-                    className="col-lg-4 col align-self-center"
-                    key={key.slots_ID}
-                  >
-                    <Button
-                      disabled={disabled}
-                      className="buttonSubmit"
-                      onClick={() => {
-                        handleSelectTimeslot(key);
-                      }}
+                if (key.is_booked === true)
+                {
+                  return(
+                    <div
+                      className="col-lg-4 col align-self-center"
                     >
-                      {key.time_slot}
-                    </Button>
-                  </div>
-                );
+                    <Button
+                    variant="secondary"
+                    disabled
+                    className="buttonDisabled but"
+                  >{key.time_slot}</Button>
+                  </div>)
+                }
+                else
+                {
+                  let disabled = false;
+
+                  if (
+                    selectedTimeslot &&
+                    key.slots_ID === selectedTimeslot.slots_ID
+                  ) {
+                    disabled = true;
+                  }
+  
+                  return (
+                    <div
+                      className="col-lg-4 col align-self-center"
+                      key={key.slots_ID}
+                    >
+                      <Button
+                        disabled={disabled}
+                        className="buttonSubmit"
+                        onClick={() => {
+                          handleSelectTimeslot(key);
+                        }}
+                      >
+                        {key.time_slot}
+                      </Button>
+                    </div>
+                  );
+                }
+              
               })}
             </div>
           </Col>
@@ -169,6 +135,9 @@ class Booking extends Component {
                     <Card.Title className="text-uppercase">
                       {key.service_type}
                     </Card.Title>
+                    <Card.Title className="text-uppercase">
+                    {key.duration}
+                  </Card.Title>
                   </Card.Body>
                   <Card.Footer>
                     <span className="">{key.price_currency}</span>
@@ -196,22 +165,6 @@ class Booking extends Component {
         
         {selectedService === null || selectedTimeslot === null || timeslot.length === 0 ? (
         <Button disabled onClick={this.continue}>Next</Button>) : (<Button onClick={this.continue}>Next</Button> )}
-        
-        {/* <Button
-          onClick={() => {
-            alert(
-              JSON.stringify({
-                selectedDate: this.props.selectedDate,
-                selectedService: this.props.selectedService,
-                selectedTimeslot: this.props.selectedTimeslot,
-                timeslot: this.props.timeslot
-              })
-            );
-          }}
-        >
-          {" "}
-          Check out!
-        </Button> */}
       </div>
     );
   }

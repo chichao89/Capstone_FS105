@@ -14,3 +14,4 @@ class Slots(models.Model):
     class Meta:
       db_table = "slots"
       verbose_name_plural = 'slots'
+
