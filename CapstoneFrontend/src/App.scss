@@ -35,7 +35,7 @@ html {
 }
 
 .text-uppercase {
-    text-transform: lowercase!important;
+    text-transform: uppercase!important;
 }
 .h1 {
     font-size: 1.5rem !important;
@@ -84,6 +84,10 @@ body {
         letter-spacing: .64px;
         line-height: 6.1rem;
         color: #222;
+}
+
+.text-white {
+    color: black!important;
 }
 
 .slogan{
@@ -162,6 +166,9 @@ body {
 
 //jumbotron
 .jumbotron-fluid, .parallax{
+  @media screen {min-width: none;
+      
+  }  
   background-attachment: fixed;
   background-image:
   linear-gradient(to top, (#ff9aa2b0, #ffb7b22a, #ffdac12a, #e2f0cb4b), (#e2f0cb52, #b5ead736, #c7ceea52)),
@@ -182,6 +189,7 @@ body {
 /*adjusting the card */
 .card{
     border: none;
+    align-content: center;
 }
 .card-text{
     font-size:.7em;
@@ -208,7 +216,7 @@ footer input[type=text],input[type=email]{
   //  max-width: 190px;
     width: 100%;
     font-size: 1rem;
-    color: #fff;
+    color:#fff;
     font-weight: 400;
     padding: .7rem 1.4rem;
     background: none;
@@ -233,7 +241,7 @@ footer input[type=text],input[type=email]{
     font-size: 1rem;
     color: rgb(10, 0, 0);
     background: none;
-    margin-left: 0.8rem;
+    margin-left: -0.2rem;
     padding: .7rem;
 }
 
@@ -282,10 +290,12 @@ footer input[type=text],input[type=email]{
 img {
     cursor: pointer;
     max-width:100%;
+    
 }
 
 .img-fluid{
-    max-width : 80%;
+    max-width : 100%;
+    max-height: auto;
 }
 
 //make certain images without cursor
@@ -437,7 +447,7 @@ input[type=email]{
 }
 
 //media screen display
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .display-2 {
         font-size: 11vw;
         font-weight: 300;
@@ -459,5 +469,6 @@ input[type=email]{
     background-size: 100% 50%;
     }
     
+   
    
   }
