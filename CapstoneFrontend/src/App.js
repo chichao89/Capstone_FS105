@@ -14,7 +14,8 @@ import Promo from "./Components/Promo"
 
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer } from 'react-notifications';
-
+// React Notification
+import { NotificationManager } from 'react-notifications';
 
 
 
@@ -68,7 +69,7 @@ class App extends Component {
         return res.json()
       })
       .then(json => {
-        console.log(json)
+        NotificationManager.success('Login Successful!','Welcome!',5000)
         localStorage.setItem('token', json.token);
         this.setState({
           logged_in: true,
@@ -76,7 +77,7 @@ class App extends Component {
         });
       })
       .catch(err => {
-        alert(err.message);
+        NotificationManager.error('Error Message',err.message,5000)
       });
   };
 
@@ -89,17 +90,26 @@ class App extends Component {
       },
       body: JSON.stringify(data)
     })
-      .then(res => res.json())
+      .then(res => res.json() 
+        // if (res.status !== 200) {
+        //   return Promise.reject(new Error('Login Fail, Please check your data!'));
+        // }
+      )
       .then(json => {
+        NotificationManager.success('Sign Up Successful!','Welcome',5000)
         localStorage.setItem('token', json.token);
         this.setState({
           logged_in: true,
           username: json.username
         });
-      });
+      })
+      // .catch(err => {
+      //   NotificationManager.error('Error Message',err.message,5000)
+      // });
   };
 
   handle_logout = () => {
+    NotificationManager.success('Logout Successful!','See You!',5000)
     localStorage.removeItem('token');
     this.setState({ logged_in: false, username: '' });
   };

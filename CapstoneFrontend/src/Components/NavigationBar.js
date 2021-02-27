@@ -5,6 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+
 function NavigationBar(props) {
   //state of logged_in
   const [values, setValues] = useState({
@@ -93,6 +94,11 @@ function NavigationBar(props) {
     setInShow(false)
   }
 
+  const logoutClose = () => {
+    setValues("")  
+    props.handle_logout()
+  }
+
   // function handleSubmit(e) {
   //   e.preventDefault();
   //   alert(`Submitting ${values.userName}`);
@@ -172,6 +178,7 @@ function NavigationBar(props) {
                 name="username"
                 className="form-control"
                 id="username"
+                required
                 value={signUp.username}
                 onChange={handleSignUpUserNameChange}
               ></input>
@@ -205,13 +212,13 @@ function NavigationBar(props) {
                 Email Address:
               </label>
               <input
-                type="text"
+                type="email"
                 name="email"
                 className="form-control"
                 id="email"
                 value={signUp.email}
                 onChange={handleSignUpEmailChange}
-               required="required"
+                required
               ></input>
               <label htmlFor="address" class="ms-2 mt-2">
                 Address:
@@ -221,7 +228,7 @@ function NavigationBar(props) {
                 name="address"
                 className="form-control"
                 id="address"
-                
+                required
                 value={signUp.address}
                 onChange={handleSignUpAddressChange}
               ></input>
@@ -234,8 +241,9 @@ function NavigationBar(props) {
                 id="phone"
                 name="phone"
                 className="form-control"
-               pattern="[8-9]{1}[0-9]{7}"
-               title = "Please enter your 8 digit contact number."
+                pattern="[8-9]{1}[0-9]{7}"
+                title = "Please enter your 8 digit contact number."
+                required
                 value={signUp.contact}
                 onChange={handleSignUpContactChange}
               ></input>
@@ -260,7 +268,7 @@ function NavigationBar(props) {
   const logged_in_nav = (
     <div>
       <span className="text-white">Hello, {props.username}</span>
-      <Button variant="outline-light" className="buttonSearch button2" onClick={props.handle_logout}>
+      <Button variant="outline-light" className="buttonSearch button2" onClick={logoutClose}>
         logout
       </Button>
     </div>

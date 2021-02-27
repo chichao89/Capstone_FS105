@@ -431,6 +431,10 @@ span{
     padding: 0.2em;
 }
 
+input[type=email]{
+    color:black;
+    padding: .375rem .75rem;
+}
 
 //media screen display
 @media screen and (max-width: 600px) {
