@@ -104,7 +104,7 @@ class Booking extends Component {
         </Row>
         <Row>
           <Col>
-            <div className="d-flex justify-content-center">
+            <div>
               <h3 className="text-uppercase">Select Service</h3>
             </div>
           </Col>
@@ -121,7 +121,7 @@ class Booking extends Component {
             }
             return (
               <div className="col-lg-4" key={key.service_ID}>
-                <Card style={{ width: "11rem" }}>
+                <Card>
                   <div className="img-thumbnail">
                     <Card.Img
                       src={key.image}

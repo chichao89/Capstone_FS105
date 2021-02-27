@@ -441,10 +441,19 @@ span{
     padding: 0.2em;
 }
 
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+
+
 input[type=email]{
     color:black;
     padding: .375rem .75rem;
 }
+
 
 //media screen display
 @media screen and (max-width: 768px) {
@@ -469,6 +478,7 @@ input[type=email]{
     background-size: 100% 50%;
     }
     
+       
    
    
   }
