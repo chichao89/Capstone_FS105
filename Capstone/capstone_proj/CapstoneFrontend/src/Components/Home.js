@@ -3,7 +3,6 @@ import Card from "react-bootstrap/Card";
 import { Nav } from 'react-bootstrap';
 import {NavLink } from 'react-router-dom'
 import axios from 'axios'
-import { Testimonial_API_URL } from "../api/api";
 import Row from "react-bootstrap/Row";
 
 
@@ -11,7 +10,7 @@ function Home() {
   const [testimonial, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(Testimonial_API_URL).then((res) => {
+    axios.get(process.env.REACT_APP_TESTIMONIAL).then((res) => {
       const testimonial = res.data;
       setData(testimonial);
     });

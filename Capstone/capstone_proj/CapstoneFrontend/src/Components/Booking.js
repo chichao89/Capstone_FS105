@@ -5,8 +5,6 @@ import Col from "react-bootstrap/Col";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
-import { Slots_API_URL } from "../api/api";
-import { API_URL } from "../api/api";
 import CheckOut from "./CheckOut";
 
 class Booking extends Component {

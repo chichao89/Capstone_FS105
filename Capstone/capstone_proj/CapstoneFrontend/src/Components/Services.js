@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
-import { API_URL } from "../api/api";
+
 
 class Services extends Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class Services extends Component {
   }
 
   componentDidMount() {
-    axios.get(API_URL).then((res) => {
+    axios.get(process.env.REACT_APP_SERVICENAIL).then((res) => {
       const services = res.data;
       this.setState({ services });
     });

@@ -11,7 +11,7 @@ import Booking from  "./Components/Booking"
 import Main from "./Components/Main"
 import StepForm from "./Components/StepForm"
 import Promo from "./Components/Promo"
-
+import axios from "axios";
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer } from 'react-notifications';
 // React Notification
@@ -32,19 +32,20 @@ class App extends Component {
     };
   }
 
+  
   componentDidMount() {
     if (this.state.logged_in) {
-      fetch('http://localhost:8000/core/current_user/', {
+      axios.get(process.env.REACT_APP_CURRENT_USER, {
         headers: {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }
       })
-        .then(res => res.json())
-        .then(json => {
-          this.setState({ username: json.username,
-                          email : json.email,
-                          contact: json.contact,
-                          id: json.id
+        .then(res => res.data)
+        .then(data => {
+          this.setState({ username: data.username,
+                          email : data.email,
+                          contact: data.contact,
+                          id: data.id
                          
           }           
             ); 
@@ -52,60 +53,58 @@ class App extends Component {
     }
   }
 
-  handle_login = (e, data) => {
-    e.preventDefault();
-    fetch('http://localhost:8000/token-auth/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then(res => {
-        if (res.status != 200) {
-          return Promise.reject(new Error('Login Failed'));
-        }
 
-        return res.json()
+  handle_login = (e, data) => {
+
+    const options = {
+      headers: {
+          'Content-Type': 'application/json',
+      }
+    };
+    
+    // const data_string = JSON.stringify(data)
+    e.preventDefault();
+    axios.post(process.env.REACT_APP_AUTHORIZATION_TOKEN, data,options)
+      .then(res => {
+        return res.data
       })
-      .then(json => {
+      .then(data => {
         NotificationManager.success('Login Successful!','Welcome!',5000)
-        localStorage.setItem('token', json.token);
+        localStorage.setItem('token', data.token);
         this.setState({
           logged_in: true,
-          username: json.user.username
+          username: data.user.username
         });
       })
       .catch(err => {
-        NotificationManager.error('Error Message',err.message,5000)
+        const error = err.response.data.non_field_errors[0]
+        NotificationManager.error('Error Message',error,5000)
       });
   };
 
     handle_signup = (e, data) => {
+      const options = {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+      };
     e.preventDefault();
-    fetch('http://localhost:8000/core/users/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json() 
-        // if (res.status !== 200) {
-        //   return Promise.reject(new Error('Login Fail, Please check your data!'));
-        // }
+    axios.post(process.env.REACT_APP_USER_SIGNUP, data, options)
+      .then(res => res.data
       )
-      .then(json => {
+      .then(data => {
         NotificationManager.success('Sign Up Successful!','Welcome',5000)
-        localStorage.setItem('token', json.token);
+        localStorage.setItem('token', data.token);
         this.setState({
           logged_in: true,
-          username: json.username
+          username: data.username
         });
       })
-      // .catch(err => {
-      //   NotificationManager.error('Error Message',err.message,5000)
-      // });
+      .catch(err => {
+        const error = err.response.data.password[0]
+        console.log(error)
+        NotificationManager.error('Error Message',error,5000)
+      });
   };
 
   handle_logout = () => {

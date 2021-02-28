@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Booking from './Booking';
 import CheckOut from './CheckOut';
 import axios from "axios";
-import { Slots_API_URL } from "../api/api";
-import { API_URL } from "../api/api";
+
 
 class StepForm extends Component {
   constructor(props){
@@ -42,7 +41,7 @@ class StepForm extends Component {
          .toISOString()
          .split("T")[0];
     // API call to get available times for selected date
-      axios.get(Slots_API_URL, {
+      axios.get(process.env.REACT_APP_SLOTS, {
         headers: {
           Authorization: `JWT ${localStorage.getItem('token')}`,
         },
@@ -68,7 +67,7 @@ class StepForm extends Component {
 
   async  componentDidMount() {
     // API call to get all services
-     axios.get(API_URL).then((res) => {
+     axios.get(process.env.REACT_APP_SERVICENAIL).then((res) => {
       const services = res.data;
       this.setState({ services });
     });
@@ -77,7 +76,7 @@ class StepForm extends Component {
     let dateString = new Date(this.state.selectedDate.getTime() - (this.state.selectedDate.getTimezoneOffset() * 60000 ))
     .toISOString()
     .split("T")[0];
-    await axios.get(Slots_API_URL, {
+    await axios.get(process.env.REACT_APP_SLOTS, {
       headers: {
         Authorization: `JWT ${localStorage.getItem('token')}`,
       },

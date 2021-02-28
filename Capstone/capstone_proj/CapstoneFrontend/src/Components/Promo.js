@@ -4,7 +4,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
-import { Promo_API_URL } from "../api/api";
 import Countdown from "./Countdown";
 
 
@@ -17,7 +16,7 @@ class Promo extends Component {
   }
 
   componentDidMount() {
-    axios.get(Promo_API_URL).then((res) => {
+    axios.get(process.env.REACT_APP_PROMO).then((res) => {
       const promo = res.data;
       this.setState({ promo });
       console.log(promo)
