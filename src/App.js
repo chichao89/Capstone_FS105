@@ -17,6 +17,9 @@ import { NotificationContainer } from 'react-notifications';
 // React Notification
 import { NotificationManager } from 'react-notifications';
 
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
 
 
 class App extends Component {

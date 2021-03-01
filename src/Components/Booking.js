@@ -7,6 +7,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import CheckOut from "./CheckOut";
 
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
 class Booking extends Component {
 
   continue = (e) => {

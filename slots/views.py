@@ -5,6 +5,9 @@ from .serializers import SlotsSerializer
 from rest_framework.permissions import IsAuthenticated
 from datetime import datetime   
 # Create your views here.
+from django.views import View
+from django.http import HttpResponse, HttpResponseNotFound
+import os
 
 class SlotsViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
@@ -19,4 +22,14 @@ class SlotsViewSet(viewsets.ModelViewSet):
         return queryset
     serializer_class = SlotsSerializer
 
+# Add this CBV
+class Assets(View):
 
+    def get(self, _request, filename):
+        path = os.path.join(os.path.dirname(__file__), 'static', filename)
+
+        if os.path.isfile(path):
+            with open(path, 'rb') as file:
+                return HttpResponse(file.read(), content_type='application/javascript')
+        else:
+            return HttpResponseNotFound()

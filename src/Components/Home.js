@@ -5,6 +5,9 @@ import {NavLink } from 'react-router-dom'
 import axios from 'axios'
 import Row from "react-bootstrap/Row";
 
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
 
 function Home() {
   const [testimonial, setData] = useState([]);

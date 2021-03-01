@@ -3,6 +3,9 @@ import Booking from './Booking';
 import CheckOut from './CheckOut';
 import axios from "axios";
 
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
 
 class StepForm extends Component {
   constructor(props){

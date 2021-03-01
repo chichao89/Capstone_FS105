@@ -4,6 +4,9 @@ import axios from "axios";
 // React Notification
 import { NotificationManager } from 'react-notifications';
 
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
 class CheckOut extends Component {
   constructor(props){
     super(props)

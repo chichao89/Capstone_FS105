@@ -6,6 +6,9 @@ import Form from "react-bootstrap/Form";
 import axios from "axios";
 import Countdown from "./Countdown";
 
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
 
 class Promo extends Component {
   constructor(props) {
