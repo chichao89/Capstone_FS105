@@ -25,6 +25,7 @@ from serviceNail import views as serviceNail_views
 from testimonial import views as testimonial_views
 from slots import views as slots_views
 from rest_framework_jwt.views import obtain_jwt_token
+from django.views.generic import TemplateView
 
 
 router = routers.DefaultRouter()
@@ -45,5 +46,6 @@ urlpatterns = [
     path('token-auth/', obtain_jwt_token),
     path('core/', include('core.urls')),
     path('booking/',include('booking.urls'))
+    re_path('.*', TemplateView.as_view(template_name='index.html')),
     # path('SlotsAPI/',include('slots.urls'))
 ]
