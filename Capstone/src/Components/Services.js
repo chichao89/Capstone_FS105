@@ -15,7 +15,7 @@ class Services extends Component {
   }
 
   componentDidMount() {
-    axios.get(process.env.REACT_APP_SERVICENAIL).then((res) => {
+    axios.get('/ServiceNailAPI/').then((res) => {
       const services = res.data;
       this.setState({ services });
     });

@@ -47,7 +47,7 @@ class CheckOut extends Component {
     };
     
     // console.log(token);
-    axios.post(process.env.REACT_APP_BOOKING, data, options)
+    axios.post('/booking/Booking/', data, options)
     .then(res => {
       // alert('Booking is Successful, See you on that Day!', res.data);
       this.setState({submit:true});

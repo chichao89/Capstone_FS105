@@ -16,7 +16,7 @@ class Promo extends Component {
   }
 
   componentDidMount() {
-    axios.get(process.env.REACT_APP_PROMO).then((res) => {
+    axios.get('/PromotionAPI/').then((res) => {
       const promo = res.data;
       this.setState({ promo });
       console.log(promo)

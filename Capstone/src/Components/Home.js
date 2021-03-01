@@ -10,7 +10,7 @@ function Home() {
   const [testimonial, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(process.env.REACT_APP_TESTIMONIAL).then((res) => {
+    axios.get('/TestimonialAPI/').then((res) => {
       const testimonial = res.data;
       setData(testimonial);
     });

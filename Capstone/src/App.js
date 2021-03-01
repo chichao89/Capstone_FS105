@@ -35,7 +35,7 @@ class App extends Component {
   
   componentDidMount() {
     if (this.state.logged_in) {
-      axios.get(process.env.REACT_APP_CURRENT_USER, {
+      axios.get('/core/current_user/', {
         headers: {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }
@@ -64,7 +64,7 @@ class App extends Component {
     
     // const data_string = JSON.stringify(data)
     e.preventDefault();
-    axios.post(process.env.REACT_APP_AUTHORIZATION_TOKEN, data,options)
+    axios.post('/token-auth/', data,options)
       .then(res => {
         return res.data
       })
@@ -89,7 +89,7 @@ class App extends Component {
         }
       };
     e.preventDefault();
-    axios.post(process.env.REACT_APP_USER_SIGNUP, data, options)
+    axios.post('/core/users/', data, options)
       .then(res => res.data
       )
       .then(data => {
