@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Promotion
+from serviceNail.models import ServiceNail
 from imageFiles.serializers import ImageFilesSerializer
 
 class PromotionSerializer(serializers.ModelSerializer):

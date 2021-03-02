@@ -6,12 +6,17 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { Slots_API_URL } from "../api/api";
-import { API_URL } from "../api/api";
+import { API_URL, Promo_API_URL } from "../api/api";
 import CheckOut from "./CheckOut";
 
 class Booking extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      services: [],
+      discountedPrice: [],
+    };
+    
     //this.state = {
     // used for the form
     // selectedDate: new Date(),
@@ -62,11 +67,25 @@ class Booking extends Component {
   //   e.preventDefault();
   //   console.log(this.state.startDate)
   // }
-
+  
+  
   continue = (e) => {
     e.preventDefault();
     this.props.nextStep();
+    
   };
+  componentDidMount() {
+    axios.get(API_URL).then((res) => {
+      const services = res.data;
+      this.setState({ services });
+    });
+    axios.get(Promo_API_URL).then((res) => {
+      const discountedPrice = res.data;
+      this.setState({ discountedPrice });
+      console.log(discountedPrice)
+  });
+}
+  
 
   render() {
     const {
@@ -79,6 +98,14 @@ class Booking extends Component {
       timeslot,
       services,
     } = this.props;
+    const discount = this.state.discountedPrice.map((dct) => (
+      dct=dct.discount_amt
+    ))
+    console.log(discount)
+    const discountActive = this.state.discountedPrice.map((act) => (
+      act = act.active
+    ))
+    console.log(discountActive)
     return (
       <div>
         <Row>
@@ -153,9 +180,12 @@ class Booking extends Component {
             ) {
               disabled = true;
             }
+            
+            
+
             return (
               <div className="col-lg-4" key={key.service_ID}>
-                <Card style={{ width: "11rem" }}>
+                <Card style={{ width: "14rem" }}>
                   <div className="img-thumbnail">
                     <Card.Img
                       src={key.image}
@@ -171,12 +201,21 @@ class Booking extends Component {
                     </Card.Title>
                   </Card.Body>
                   <Card.Footer>
-                    <span className="">{key.price_currency}</span>
-                    {key.price === "0.00" ? (
-                      <span>Free</span>
-                    ) : (
-                      <span>{key.price}</span>
-                    )}
+                  {discountActive[0] === true? 
+              (<span style={{textDecorationLine: 'line-through'}}>{key.price_currency} {key.price}</span>) :
+              (
+               <span >{key.price_currency} {key.price}</span>
+             ) }
+            
+
+            {/*<span  className="">{key.price_currency}</span>*/}
+            {discountActive[0] === true? (<span>{key.price_currency} {(((100-discount)/100)* (key.price)).toFixed(2)}</span>):null}
+
+             {discountActive[0] === false? 
+              (<span >{key.price_currency} {key.price}</span>) :
+              null }
+
+             
                   </Card.Footer>
                   <Button
                     disabled={disabled}

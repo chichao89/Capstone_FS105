@@ -4,13 +4,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
-import { API_URL } from "../api/api";
+import { API_URL, Promo_API_URL } from "../api/api";
 
 class Services extends Component {
   constructor(props) {
     super(props);
     this.state = {
       services: [],
+      discountedPrice: [],
     };
   }
 
@@ -19,9 +20,24 @@ class Services extends Component {
       const services = res.data;
       this.setState({ services });
     });
-  }
+    axios.get(Promo_API_URL).then((res) => {
+      const discountedPrice = res.data;
+      this.setState({ discountedPrice });
+      console.log(discountedPrice)
+  });
+}
 
   render() {
+    const discount = this.state.discountedPrice.map((dct) => (
+      dct=dct.discount_amt
+    ))
+    console.log(discount)
+    const discountActive = this.state.discountedPrice.map((act) => (
+      act = act.active
+    ))
+
+    
+    console.log(discountActive)
     return (
       <div>
         <Row>
@@ -50,14 +66,29 @@ class Services extends Component {
                     {key.duration}
                   </Card.Title>
                 </Card.Body>
-                <Card.Footer> 
-                  <span className="">{key.price_currency}</span>
+                <Card.Footer >  
+                  {/*<span  className="">{key.price_currency}</span>*/}
+                
+                  {discountActive[0] === true? 
+                   (<span style={{textDecorationLine: 'line-through'}}>{key.price_currency} {key.price}</span>) :
+                   (
+                    <span >{key.price_currency} {key.price}</span>
+                  ) }
+                 
+
+                 {/*<span  className="">{key.price_currency}</span>*/}
+                 {discountActive[0] === true? (<span>{key.price_currency} {(((100-discount)/100)* (key.price)).toFixed(2)}</span>):null}
+
+                  {discountActive[0] === false? 
+                   (<span >{key.price_currency} {key.price}</span>) :
+                   null }
+
                   {key.price === '0.00' ? (
                     <span>Free</span>
-                  ) : (
-                    <span>{key.price}</span>
-                  )
-                 }
+                  ): null}
+
+
+                     
                 </Card.Footer>
               </Card>
             </div>
