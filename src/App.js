@@ -73,13 +73,14 @@ class App extends Component {
       })
       .then(data => {
         NotificationManager.success('Login Successful!','Welcome!',5000)
+        console.log(data,"test")
         localStorage.setItem('token', data.token);
         this.setState({
           logged_in: true,
           username: data.user.username,
-          email : data.email,
-          contact: data.contact,
-          id: data.id
+          email : data.user.email,
+          contact: data.user.contact,
+          id: data.user.id
         });
       })
       .catch(err => {
@@ -119,7 +120,8 @@ class App extends Component {
   handle_logout = () => {
     NotificationManager.success('Logout Successful!','See You!',5000)
     localStorage.removeItem('token');
-    this.setState({ logged_in: false, username: '' });
+    this.setState({ logged_in: false, username: '', email : '',
+    contact: '', id: '' });
   };
 render(){
   return (
