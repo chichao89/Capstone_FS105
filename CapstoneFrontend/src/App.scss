@@ -44,13 +44,22 @@ html {
 h1 {
     display: block;
     font-size: 2em;
-    margin-block-start: 0.67em;
+    margin-block-start: -1.5em;
     margin-block-end: 0.67em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-family: 'Courgette', cursive;
     font-weight: bold;
     color: black;
+}
+
+h4 {
+    display: block;
+    margin-block-start: 20em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
 
 *, *:before, *:after {
@@ -98,8 +107,10 @@ body {
 }
 
 .display-6{
+    @media screen {min-width: none;}
     
     color: #ff9aa2 !important;
+    font-family: 'Permanent Marker';
     //mix-blend-mode: difference;
     /*-webkit-animation: glow 1s ease-in-out infinite alternate;
       -moz-animation: glow 1s ease-in-out infinite alternate;*/
@@ -166,13 +177,14 @@ body {
 
 //jumbotron
 .jumbotron-fluid, .parallax{
-  @media screen {min-width: none;
-      
-  }  
+    @media screen {min-width: none;
+        
+    }
+
   background-attachment: fixed;
   background-image:
   linear-gradient(to top, (#ff9aa2b0, #ffb7b22a, #ffdac12a, #e2f0cb4b), (#e2f0cb52, #b5ead736, #c7ceea52)),
-  url('./Assets/naillogo.jpeg');
+  url('./Assets/inailforfung1.jpeg') !important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -441,19 +453,16 @@ span{
     padding: 0.2em;
 }
 
-<<<<<<< HEAD
 input[type=email]{
     color:black;
     padding: .375rem .75rem;
 }
-=======
 .btn-primary:hover {
     color: #fff;
     background-color: black;
     border-color: black;
 }
 
->>>>>>> make some changes on jumbotron n app.scss
 
 //media screen display
 @media screen and (max-width: 768px) {
