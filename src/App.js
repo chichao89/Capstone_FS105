@@ -103,7 +103,10 @@ class App extends Component {
         localStorage.setItem('token', data.token);
         this.setState({
           logged_in: true,
-          username: data.username
+          username: data.username,
+          email : data.email,
+          contact: data.contact,
+          id: data.id
         });
       })
       .catch(err => {
