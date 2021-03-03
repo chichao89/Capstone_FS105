@@ -14,3 +14,4 @@ class ServiceNailSerializer(serializers.ModelSerializer):
         rep = super().to_representation(instance)
         rep['image'] = ImageFilesSerializer(instance.image).data['Image_URL']
         return rep
+

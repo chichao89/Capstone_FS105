@@ -5,10 +5,14 @@ from .serializers import BookingSerializer
 from rest_framework import permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
+<<<<<<< HEAD:CapstoneBackend/capstone_proj/booking/views.py
+from promotion.models import Promotion
+=======
 from django.views import View
 from django.http import HttpResponse, HttpResponseNotFound
 import os
 
+>>>>>>> main:booking/views.py
 # Create your views here.
 
 class BookingList(APIView):
@@ -19,8 +23,9 @@ class BookingList(APIView):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        self.Promotion_ID = self.session.get('Promotion_ID')
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+   
     #queryset = Booking.objects.all()
     # serializer_class = BookingSerializer
     # def get_queryset(self):

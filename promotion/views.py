@@ -7,7 +7,15 @@ from rest_framework.permissions import AllowAny
 
 class PromotionViewSet(viewsets.ModelViewSet):
     permission_classes = [AllowAny]
-    queryset = Promotion.objects.all()
+    #queryset = Promotion.objects.all()
+    queryset = Promotion.objects.filter(active__exact=True)
+
     serializer_class = PromotionSerializer
+
+
+
 # Create your views here.
+
+    
+        
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import Countdown from "./Countdown";
@@ -35,10 +36,12 @@ class Promo extends Component {
             <h1 className="text-uppercase">Promos</h1>
           </Col>
         </Row>
+        <Container>
         <Row>
          {this.state.promo.map((key) => (
-            <div className="col-lg-4" key={key.Promotion_ID}>
-              <Countdown futureDate={key.promo_start}></Countdown>
+            <div className="container-fluid" key={key.Promotion_ID}>
+              <Countdown futureDate={key.promo_start} ></Countdown>
+              <Col promoEnd={key.promo_end}></Col>
               <Card>
                 <div className="effect-image-1">   
                 <Card.Img
@@ -70,6 +73,7 @@ class Promo extends Component {
                
                 
         </Row>
+        </Container>
       </div>
     );
   }
