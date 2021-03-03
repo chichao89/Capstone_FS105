@@ -121,6 +121,7 @@ class StepForm extends Component {
                 id = {this.props.id}
                 contact={this.props.contact}
                 name = {this.props.name}
+                logged_in = {this.props.logged_in}
             />);
     }
 
