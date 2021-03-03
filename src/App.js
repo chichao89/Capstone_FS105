@@ -38,7 +38,7 @@ class App extends Component {
   
   componentDidMount() {
     if (this.state.logged_in) {
-      axios.get('/core/current_user/', {
+      axios.get('core/current_user/', {
         headers: {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }
@@ -67,7 +67,7 @@ class App extends Component {
     
     // const data_string = JSON.stringify(data)
     e.preventDefault();
-    axios.post('/token-auth/', data,options)
+    axios.post('token-auth/', data,options)
       .then(res => {
         return res.data
       })
@@ -76,7 +76,10 @@ class App extends Component {
         localStorage.setItem('token', data.token);
         this.setState({
           logged_in: true,
-          username: data.user.username
+          username: data.user.username,
+          email : data.email,
+          contact: data.contact,
+          id: data.id
         });
       })
       .catch(err => {
@@ -92,7 +95,7 @@ class App extends Component {
         }
       };
     e.preventDefault();
-    axios.post('/core/users/', data, options)
+    axios.post('core/users/', data, options)
       .then(res => res.data
       )
       .then(data => {
@@ -129,7 +132,7 @@ render(){
             <Route exact path="/" component={Main} />
         <Layout>  
             <Route path="/Services" component={Services}/>
-            <Route path="/Booking" exact render={() => <StepForm name={this.state.username} email={this.state.email} contact={this.state.contact} id={this.state.id}/>}/>
+            <Route path="/Booking" exact render={() => <StepForm name={this.state.username} email={this.state.email} contact={this.state.contact} id={this.state.id} logged_in={this.state.logged_in}/>}/>
             <Route path="/Promo" component={Promo}/>
             <NotificationContainer />
         </Layout>

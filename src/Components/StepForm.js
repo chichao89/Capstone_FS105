@@ -44,7 +44,7 @@ class StepForm extends Component {
          .toISOString()
          .split("T")[0];
     // API call to get available times for selected date
-      axios.get('/SlotsAPI/', {
+      axios.get('api/SlotsAPI/', {
         headers: {
           Authorization: `JWT ${localStorage.getItem('token')}`,
         },
@@ -70,7 +70,7 @@ class StepForm extends Component {
 
   async  componentDidMount() {
     // API call to get all services
-     axios.get('/ServiceNailAPI/').then((res) => {
+     axios.get('api/ServiceNailAPI/').then((res) => {
       const services = res.data;
       this.setState({ services });
     });
@@ -79,15 +79,16 @@ class StepForm extends Component {
     let dateString = new Date(this.state.selectedDate.getTime() - (this.state.selectedDate.getTimezoneOffset() * 60000 ))
     .toISOString()
     .split("T")[0];
-    await axios.get('/SlotsAPI/', {
-      headers: {
-        Authorization: `JWT ${localStorage.getItem('token')}`,
-      },
+    axios.get('api/SlotsAPI/', {
+      // headers: {
+      //   Authorization: `JWT ${localStorage.getItem('token')}`,
+      // },
       params: {
         date: dateString
       }
     }).then(res => {
       this.setState({ timeslot: res.data })
+      console.log(res);
     })
   }
 
@@ -105,6 +106,7 @@ class StepForm extends Component {
                 selectedService={selectedService}
                 timeslot = {timeslot}
                 services = {services}
+                logged_in = {this.props.logged_in}
             />);
         if(step === 2)
             return (<CheckOut 
@@ -127,7 +129,11 @@ class StepForm extends Component {
 
         return(
             <>
-                <h2>Step {step} of 2.</h2>
+                
+                {this.props.logged_in === false ? (null) 
+                :(<h2>Step {step} of 2.</h2>
+                  )
+                }
                 {this.showStep()}
             </>
         );

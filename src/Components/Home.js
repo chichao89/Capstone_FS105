@@ -13,7 +13,7 @@ function Home() {
   const [testimonial, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('/TestimonialAPI/').then((res) => {
+    axios.get('api/TestimonialAPI/').then((res) => {
       const testimonial = res.data;
       setData(testimonial);
     });

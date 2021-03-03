@@ -51,7 +51,7 @@ class BookingSerializer(serializers.ModelSerializer):
                    +'Contact:'+ str(profile.contact)+'\n\n'
                    +'If you have to change or cancel your booking, please DM me at my instagram profile via the social media links in the website.')
         email_from = settings.EMAIL_HOST_USER
-        recipient_list = ['djangocapstone@gmail.com',]
+        recipient_list = [user.email,]
         send_mail( subject, message, email_from, recipient_list )
         return instance
    

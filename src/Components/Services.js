@@ -18,7 +18,7 @@ class Services extends Component {
   }
 
   componentDidMount() {
-    axios.get('/ServiceNailAPI/').then((res) => {
+    axios.get('api/ServiceNailAPI/').then((res) => {
       const services = res.data;
       this.setState({ services });
     });
