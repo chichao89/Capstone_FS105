@@ -23,7 +23,7 @@ class Promo extends Component {
     axios.get('api/PromotionAPI/').then((res) => {
       const promo = res.data;
       this.setState({ promo });
-      console.log(promo)
+      console.log(promo,"test")
     });
   }
 

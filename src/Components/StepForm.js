@@ -19,6 +19,7 @@ class StepForm extends Component {
         //used to display
         timeslot: [],
         services: [],
+        discountedPrice: [],
         // step 2
     }
     this.handleDateChange = this.handleDateChange.bind(this)
@@ -75,6 +76,12 @@ class StepForm extends Component {
       this.setState({ services });
     });
 
+    axios.get('api/PromotionAPI/').then((res) => {
+      const discountedPrice = res.data;
+      this.setState({ discountedPrice });
+      console.log(discountedPrice)
+    });
+
     // API call to get available times for selected date
     let dateString = new Date(this.state.selectedDate.getTime() - (this.state.selectedDate.getTimezoneOffset() * 60000 ))
     .toISOString()
@@ -93,7 +100,7 @@ class StepForm extends Component {
   }
 
     showStep = () => {
-        const { step, selectedDate, selectedTimeslot,selectedService, timeslot,services} = this.state;
+        const { step, selectedDate, selectedTimeslot,selectedService, timeslot,services,discountedPrice} = this.state;
 
         if(step === 1)
             return (<Booking 
@@ -107,6 +114,7 @@ class StepForm extends Component {
                 timeslot = {timeslot}
                 services = {services}
                 logged_in = {this.props.logged_in}
+                discountedPrice = {discountedPrice}
             />);
         if(step === 2)
             return (<CheckOut 

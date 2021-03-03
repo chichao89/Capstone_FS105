@@ -5,14 +5,11 @@ from .serializers import BookingSerializer
 from rest_framework import permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-<<<<<<< HEAD:CapstoneBackend/capstone_proj/booking/views.py
 from promotion.models import Promotion
-=======
 from django.views import View
 from django.http import HttpResponse, HttpResponseNotFound
 import os
 
->>>>>>> main:booking/views.py
 # Create your views here.
 
 class BookingList(APIView):

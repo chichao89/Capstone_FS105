@@ -9,8 +9,6 @@
     "@testing-library/user-event": "^12.2.0",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-    "dotenv": "^8.2.0",
-    "env-cmd": "^10.1.0",
     "leaflet": "^1.7.1",
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
@@ -31,7 +29,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "env-cmd react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

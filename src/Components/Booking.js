@@ -27,12 +27,18 @@ class Booking extends Component {
       timeslot,
       services,
       logged_in,
+      discountedPrice,
     } = this.props;
+    console.log(discountedPrice);
+    const discount = discountedPrice.map((dct) => dct.discount_amt);
+    const discountActive = discountedPrice.map((act) => act.active);
     return (
       <div>
         {logged_in === false ? (
           <div className="allButFooter">
-          <h1>Please Log in/or Sign Up to be able to use our Booking Service</h1>
+            <h1>
+              Please Log in/or Sign Up to be able to use our Booking Service
+            </h1>
           </div>
         ) : (
           <>
@@ -144,12 +150,26 @@ class Booking extends Component {
                         </Card.Title>
                       </Card.Body>
                       <Card.Footer>
-                        <span className="">{key.price_currency}</span>
-                        {key.price === "0.00" ? (
-                          <span>Free</span>
-                        ) : (
-                          <span>{key.price}</span>
-                        )}
+                     
+                  {discountActive[0] === true ? (
+                    key.price === "0.00" ? (
+                      <span>Free</span>
+                    ) : (
+                      <>
+                        <span style={{ textDecorationLine: "line-through" }}>
+                          {key.price_currency} {key.price}
+                        </span>
+                        <span>
+                          {key.price_currency}{" "}
+                          {key.price =(((100 - discount) / 100) * key.price).toFixed(2)}
+                        </span>
+                      </>
+                    )
+                  ) : (
+                    <span>
+                      {key.price_currency} {key.price}
+                    </span>
+                  )}
                       </Card.Footer>
                       <Button
                         disabled={disabled}
