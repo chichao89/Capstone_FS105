@@ -94,7 +94,7 @@ function NavigationBar(props) {
     setInShow(false)
   }
 
-  const logoutClose = () => {
+  const logoutClose = (event) => {
     setValues("")  
     props.handle_logout()
   }
