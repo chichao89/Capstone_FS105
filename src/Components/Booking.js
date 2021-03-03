@@ -161,7 +161,7 @@ class Booking extends Component {
                         </span>
                         <span>
                           {key.price_currency}{" "}
-                          {key.price =(((100 - discount) / 100) * key.price).toFixed(2)}
+                          {key.discount_price =(((100 - discount) / 100) * key.price).toFixed(2)}
                         </span>
                       </>
                     )

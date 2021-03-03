@@ -38,7 +38,7 @@ class CheckOut extends Component {
     const data  = {
         user_id: this.props.id,
         service: this.props.selectedService['service_ID'],
-        price: this.props.selectedService['price'],
+        price: this.props.selectedService['discount_price'],
         date: date,
         time: this.props.selectedTimeslot['slots_ID']
     }
@@ -69,6 +69,15 @@ class CheckOut extends Component {
     const dateString = new Date(selectedDate.getTime() - (selectedDate.getTimezoneOffset() * 60000 ))
     .toISOString()
     .split("T")[0];
+ 
+    let price = 0
+    if(selectedService['discount_price'] === null){
+      selectedService['discount_price'] = "0.00"
+      price = selectedService['discount_price']
+    }
+    else{
+      price = selectedService['discount_price']
+    }
     const name = this.props.name
     const email = this.props.email
     const contact= this.props.contact
@@ -76,7 +85,7 @@ class CheckOut extends Component {
     const service_type = selectedService['service_type']
     const price_currency = selectedService['price_currency']
     const service_duration = selectedService['duration']
-    const price = selectedService['price']
+    console.log(selectedService,"selected!")
     return (
      <>
       {logged_in === false ? (
