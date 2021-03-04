@@ -16,6 +16,8 @@ import os
 import django_heroku
 from django.conf import settings
 import dotenv
+import datetime
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,7 +80,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'capstone_proj.utils.my_jwt_response_handler',
-    'JWT_VERIFY_EXPIRATION' : False
+    # 'JWT_VERIFY_EXPIRATION' : False,
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=1800)
 }
 
 

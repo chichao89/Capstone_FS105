@@ -40,8 +40,8 @@ class Promo extends Component {
         <Row>
          {this.state.promo.map((key) => (
             <div className="container-fluid" key={key.Promotion_ID}>
-              <Countdown futureDate={key.promo_start} ></Countdown>
-              <Col promoEnd={key.promo_end}></Col>
+              {/* <Countdown futureDate={key.promo_start} ></Countdown> */}
+              {/* <Col promoEnd={key.promo_end}></Col> */}
               <Card>
                 <div className="effect-image-1">   
                 <Card.Img
