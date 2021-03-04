@@ -95,22 +95,22 @@ class CheckOut extends Component {
       ) : (
         <Form>
         <div className="form-container p-3 mb-2 bg-white text-dark">
-          <h4 className="mb-5">Here is the Booking Details you have selected:</h4>
-          <Row>
-            <Col className="col-sm-3 my-auto">
+          <h5 className="mb-5">Here is the Booking Details you have selected:</h5>
+           <Row>
+            <Col className="mx-auto">
               <ListGroup variant="flush">
-                <ListGroup.Item>UserName:</ListGroup.Item>
-                <ListGroup.Item>Email:</ListGroup.Item>
-                <ListGroup.Item>Phone Number:</ListGroup.Item>
-                <ListGroup.Item>Booking Date:</ListGroup.Item>
-                <ListGroup.Item>TimeSlot:</ListGroup.Item>
-                <ListGroup.Item>Service Required:</ListGroup.Item>
-                <ListGroup.Item>Duration:</ListGroup.Item>
-                <ListGroup.Item>Price:</ListGroup.Item>
+                <ListGroup.Item variant="info"><span className="checkout-form">UserName:</span> <p className="checkout-data">{name}</p></ListGroup.Item>
+                <ListGroup.Item variant="info"><span className="checkout-form">Email:</span>    <p className="checkout-data">{email}</p></ListGroup.Item>
+                <ListGroup.Item variant="info"><span className="checkout-form">Phone Number:</span> <p className="checkout-data">{contact}</p></ListGroup.Item>
+                <ListGroup.Item variant="info"><span className="checkout-form">Booking Date:</span> <p className="checkout-data">{dateString}</p></ListGroup.Item>
+                <ListGroup.Item variant="info"><span className="checkout-form">TimeSlot:</span> <p className="checkout-data">{slot}</p></ListGroup.Item>
+                <ListGroup.Item variant="info"><span className="checkout-form">Service Required:</span> <p className="checkout-data">{service_type}</p></ListGroup.Item>
+                <ListGroup.Item variant="info"><span className="checkout-form">Duration:</span> <p className="checkout-data">{service_duration}</p></ListGroup.Item>
+                <ListGroup.Item variant="info"><span className="checkout-form">Price:</span> <p className="checkout-data">{price_currency}{price}</p></ListGroup.Item>
               </ListGroup>
             </Col>
-            <Col>
-              <ListGroup variant="flush">
+          
+              {/* <ListGroup variant="flush">
                 <ListGroup.Item variant="info">{name}</ListGroup.Item>
                 <ListGroup.Item variant="info">{email}</ListGroup.Item>
                 <ListGroup.Item variant="info">{contact}</ListGroup.Item>
@@ -119,15 +119,15 @@ class CheckOut extends Component {
                 <ListGroup.Item variant="info">{service_type}</ListGroup.Item>
                 <ListGroup.Item variant="info">{service_duration}</ListGroup.Item>
                 <ListGroup.Item variant="info"><span>{price_currency}</span>{price}</ListGroup.Item>
-              </ListGroup>
-            </Col>
+              </ListGroup> */}
+            
           </Row>
           <Row className="m-5">
             <Col>
               <Button className="m-2" disabled={this.state.submit} onClick={this.back}>Back</Button>
               <Button className="m-2" disabled={this.state.submit} onClick={this.handleSubmit}>Submit</Button>
             </Col>
-          </Row>
+          </Row> 
   
         </div>
         </Form>

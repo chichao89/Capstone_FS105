@@ -123,6 +123,22 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+h2{
+margin-block-start: -1.5em;
+margin-block-end: 1.83em;
+}
+
+
+.checkout-form{
+    padding: 1em;
+    color: purple;
+}
+
+.checkout-data{
+    margin: 10px;
+    font-size: 1rem;
+}
+
 .h2text {
         font-family: 'Permanent Marker';
         font-size: 5.4rem;
