@@ -14,6 +14,7 @@ const Jumbotron = () => {
         <h1 className="display-6 text-secondary">Hi, I'm Dee and I'm a home-based manicurist. How can i help? 
         <Typical
         
+            
             loop={Infinity}
             wrapper='p'
             steps={[

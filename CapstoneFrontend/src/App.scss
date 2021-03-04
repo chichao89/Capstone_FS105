@@ -453,6 +453,14 @@ span{
     padding: 0.2em;
 }
 
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: black;
+    border-color: black;
+}
+
+
 input[type=email]{
     color:black;
     padding: .375rem .75rem;
@@ -462,6 +470,7 @@ input[type=email]{
     background-color: black;
     border-color: black;
 }
+
 
 
 //media screen display
