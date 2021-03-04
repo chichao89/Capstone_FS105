@@ -106,3 +106,4 @@ CapstoneBackend/capstone_proj/testimonial/migrations/__pycache__/0005_auto_20210
 CapstoneBackend/capstone_proj/testimonial/migrations/__pycache__/0006_auto_20210208_0059.cpython-39.pyc
 CapstoneBackend/capstone_proj/testimonial/migrations/__pycache__/0007_auto_20210208_2353.cpython-39.pyc
 CapstoneBackend/capstone_proj/db.sqlite3
+node_modules
