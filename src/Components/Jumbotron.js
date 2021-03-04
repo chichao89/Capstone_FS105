@@ -13,6 +13,7 @@ const Jumbotron = () => {
         {/*<h6 className="text-white text-uppercase">Now you can feel the energy</h6>*/}
         <h1 className="display-6 text-secondary">Hi, I'm Dee and I'm a home-based manicurist. How can i help? 
         <Typical
+        
             
             loop={Infinity}
             wrapper='p'
