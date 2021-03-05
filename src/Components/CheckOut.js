@@ -109,18 +109,6 @@ class CheckOut extends Component {
                 <ListGroup.Item variant="info"><span className="checkout-form">Price:</span> <p className="checkout-data">{price_currency}{price}</p></ListGroup.Item>
               </ListGroup>
             </Col>
-          
-              {/* <ListGroup variant="flush">
-                <ListGroup.Item variant="info">{name}</ListGroup.Item>
-                <ListGroup.Item variant="info">{email}</ListGroup.Item>
-                <ListGroup.Item variant="info">{contact}</ListGroup.Item>
-                <ListGroup.Item variant="info">{dateString}</ListGroup.Item>
-                <ListGroup.Item variant="info">{slot}</ListGroup.Item>
-                <ListGroup.Item variant="info">{service_type}</ListGroup.Item>
-                <ListGroup.Item variant="info">{service_duration}</ListGroup.Item>
-                <ListGroup.Item variant="info"><span>{price_currency}</span>{price}</ListGroup.Item>
-              </ListGroup> */}
-            
           </Row>
           <Row className="m-5">
             <Col>
