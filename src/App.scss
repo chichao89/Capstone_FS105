@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
 
 .countdown {
   //background-image: url(../images/texture.svg);
@@ -55,7 +54,7 @@ html {
     padding-top: .3125rem;
     padding-bottom: .3125rem;
     margin-right: 1rem;
-    font-family: 'Courgette', cursive;
+    font-family: 'Gochi Hand', cursive;
     font-size: 1.25rem;
     line-height: inherit;
     white-space: nowrap;
@@ -65,7 +64,7 @@ html {
     padding-top: .3125rem;
     padding-bottom: .3125rem;
     margin-right: 1rem;
-    font-family: 'Courgette', cursive;
+    font-family: 'Gochi Hand', cursive;
     font-size: 1.35rem;
     line-height: inherit;
     white-space: nowrap;
@@ -73,6 +72,7 @@ html {
 
 .text-uppercase {
     text-transform: uppercase!important;
+    font-family: 'Permanent Marker';
 }
 .h1 {
     font-size: 1.5rem !important;
@@ -80,19 +80,20 @@ html {
 
 h1 {
     display: block;
-    font-size: 2em;
-    margin-block-start: -1.5em;
+    font-size: 2.5em;
+    margin-block-start: -0.5em;
     margin-block-end: 0.67em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    font-family: 'Courgette', cursive;
+    font-family: 'Gochi Hand', cursive;
+    //text-shadow: 2px 2px #0a0a0a;
     font-weight: bold;
     color: black;
 }
 
 h4 {
     display: block;
-    margin-block-start: 20em;
+    margin-block-start: 5em;
     margin-block-end: 1.33em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
@@ -115,30 +116,16 @@ body {
     margin:  0;
     padding: 0;
     line-height: 1;
-    font-family: 'Courgette', cursive;
+    font-family: 'Gochi Hand', cursive;
     color: #202020;
     background-color: #fff;
     font-smooth: always;
     -webkit-font-smoothing: antialised;
     -moz-osx-font-smoothing: grayscale;
 }
-
-h2{
-margin-block-start: -1.5em;
-margin-block-end: 1.83em;
+.text-white{
+    font-family: 'Permanent Marker';
 }
-
-
-.checkout-form{
-    padding: 1em;
-    color: purple;
-}
-
-.checkout-data{
-    margin: 10px;
-    font-size: 1rem;
-}
-
 .h2text {
         font-family: 'Permanent Marker';
         font-size: 5.4rem;
@@ -153,90 +140,37 @@ margin-block-end: 1.83em;
 }
 
 .slogan{
-    color: #ff9aa2;
-    font-family: 'Courgette', cursive;
+    color: #ff9ad5;
+    text-shadow: 1px 2px #080808;
+    font-family: 'Gochi Hand', cursive;
     font-size: 10px;
     
 }
 
 .display-6{
     @media screen {min-width: none;}
+    text-shadow: 2px 2px #0a0a0a;
+    color: #ff9a9a !important;
     
-    color: #ff9aa2 !important;
-    font-family: 'Permanent Marker';
-    //mix-blend-mode: difference;
-    /*-webkit-animation: glow 1s ease-in-out infinite alternate;
-      -moz-animation: glow 1s ease-in-out infinite alternate;*/
-    animation: glow 1s ease-in-out infinite alternate!important;
   }
 
-  /*@keyframes glow {
-    from {
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #949092,
-        0 0 40px #c7ceea, 0 0 50px #b5ead7, 0 0 60px #e3fdcb, 0 0 70px #ffdac1;
-    }
   
-    to {
-      text-shadow: 0 0 20px #fff, 0 0 30px #c2bbbf, 0 0 40px #e9dde3,
-        0 0 50px #ffb7b2, 0 0 60px #ffdac1, 0 0 70px #e2fdcb, 0 0 80px #b5ead7;
-    }
-    0% {
-      color: #c7ceea;
-    }
-    25% {
-      color: #b5ead7;
-    }
-    50% {
-      color: #b5ead7;
-    }
-    100% {
-      color: #ffdac1;
-    }
-  }*/
-
-//heading
-// @media screen and (max-width: 900px) {
-// .heading 
-// {       
-//         height: 20rem;
-//         padding: 5px;
-// }
-// }
-
-// @media only screen and (max-width: 1300px) {
-//     .heading 
-//     {       
-//             height: 8.6rem;
-//             padding: 5px;
-//             font-size: 15px;
-//     }
-//     .heading-text{
-//         margin : 10rem auto;
-//     }
-//     }
-
-//     @media only screen and (min-width: 1300px) {
-//         .heading 
-//         {       
-//                 height: 33rem;
-//                 padding: 5px;
-//         }
-//         .heading-text{
-//             margin : 10rem auto;
-//         }
-//         }
-
-// @media only screen and (max-width: 1200px)  {
-//     .allButFooter{
-//         height: 1000px;
-//     }
-// }
 
 //smart phone
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     .allButFooter{
         height: 450px;
         padding: 50px;
+    }
+    h1{
+        font-size: 1.5em;
+    }
+    h4{
+        margin-block-start: 1em;
+        font-size: 1.8em;
+    }
+    .h5{
+        font-size: 0.8rem;
     }
 }
 
@@ -262,6 +196,8 @@ margin-block-end: 1.83em;
         padding: 250px;
         font-size: 1rem;
     }
+    
+  
 }
 
 @media only screen and (min-width : 1224px){
@@ -336,7 +272,7 @@ margin-block-end: 1.83em;
   background-attachment: fixed;
   background-image:
   linear-gradient(to top, (#ff9aa2b0, #ffb7b22a, #ffdac12a, #e2f0cb4b), (#e2f0cb52, #b5ead736, #c7ceea52)),
-  url('./Assets/inailforfung1.jpeg') !important;
+  url('./Assets/logo2.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -396,6 +332,7 @@ footer input[type=text]{
     background: none;
     margin-left: 0.8rem;
     padding: .7rem;   
+    font-family: 'Gochi Hand', cursive;
 }
 
 .buttonSubmit{
@@ -645,10 +582,11 @@ input[type=email]{
 
     .jumbotron
     {
-    background-size: 100% 50%;
+    background-size: 100% 100%;
     }
+}
     
        
    
    
-  }
+  

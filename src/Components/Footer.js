@@ -19,7 +19,6 @@ const Footer = () => {
                             <a href={twitter} target="_blank" rel="noreferrer" className="fab fa-twitter"></a>
                             <a href={instagram}  target="_blank" rel="noreferrer" className="fab fa-instagram"></a>
                             <a href={whatsapp} target="_blank" rel="noreferrer" className="fab fa-whatsapp"></a>
-                            {/*<a href={linkedin} target="_blank" rel="noreferrer" className="fab fa-linkedin"></a>*/}
                             </div>
                         </div>
                     </Col>

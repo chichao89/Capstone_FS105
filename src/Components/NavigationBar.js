@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Button, Form } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+
 
 
 function NavigationBar(props) {

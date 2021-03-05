@@ -8,9 +8,7 @@ const Jumbotron = () => {
   return (
     <Jumbo fluid className="min-vh-100 parallax">
       <Container >
-      {/* <div className="parallax">  */}
         <div className="col-lg-12 text-center">
-        {/*<h6 className="text-white text-uppercase">Now you can feel the energy</h6>*/}
         <h1 className="display-6 text-secondary">Hi, I'm Dee and I'm a home-based manicurist. How can i help? 
         <Typical
         
@@ -34,9 +32,8 @@ const Jumbotron = () => {
         <h4 >Hit me up! I'm sure ill be able to nail your manicure needs.</h4>
         </div>
         </div>
-        <div className="d-*-flex flex-*-row justify-content-*-center m-5"> 
+        <div className="d-*-flex flex-*-row justify-content-*-center m-1"> 
         <Nav.Link as={NavLink} to="/Booking"><button className="btn btn-light btn btn-outline-dark">Make Your Booking Now</button></Nav.Link></div>
-        {/* </div>  */}
       </Container>
     </Jumbo>
   );
