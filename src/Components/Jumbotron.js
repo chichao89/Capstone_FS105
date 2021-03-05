@@ -29,7 +29,7 @@ const Jumbotron = () => {
             ]}/>
                 </h1>
                 <div className="slogan">
-        <h4 >Hit me up! I'm sure ill be able to nail your manicure needs.</h4>
+        <h4 >Hit me up! I'm sure i'll be able to nail your manicure needs.</h4>
         </div>
         </div>
         <div className="d-*-flex flex-*-row justify-content-*-center m-1"> 

@@ -172,6 +172,13 @@ body {
     .h5{
         font-size: 0.8rem;
     }
+    .overlay-sim-text-2 {
+        font-size: 0.5rem !important;
+        text-align: center;
+        font-family: 'Gochi Hand', cursive;
+        color: rgb(36, 2, 2);
+        padding: 13px 20px;
+    }
 }
 
 @media only screen and (min-device-width : 481px) and (max-device-width : 767px) {
@@ -179,6 +186,12 @@ body {
         height: 450px;
         padding: 100px;
     }
+    .overlay-sim-text-2 {
+        font-size: 1.35rem !important;
+        text-align: center;
+        font-family: 'Gochi Hand', cursive;
+        padding: 20px;
+        }
 }
 
 //ipad
@@ -188,6 +201,12 @@ body {
         padding: 150px;
         font-size: 25px;
     }
+    .overlay-sim-text-2 {
+        font-size: 0.7rem !important;
+        text-align: center;
+        font-family: 'Gochi Hand', cursive;
+        padding: 20px;
+    }
 }
 
 @media only screen and (min-device-width : 1024px) and (max-device-width : 1223px) {
@@ -196,7 +215,12 @@ body {
         padding: 250px;
         font-size: 1rem;
     }
-    
+    .overlay-sim-text-2 {
+        font-size: 0.8rem !important;
+        text-align: center;
+        font-family: 'Gochi Hand', cursive; 
+        padding: 13px;
+    }
   
 }
 
@@ -204,6 +228,12 @@ body {
 .allButFooter{
     height: 200px;
     padding: 50px;
+    }
+    .overlay-sim-text-2 {
+        font-size: 1rem !important;
+        font-family: 'Gochi Hand', cursive;
+        padding: 20px;
+        text-align: center;
     }
 }
 
@@ -214,6 +244,12 @@ body {
         padding: 100px;
         font-size: 2rem;
         }
+        .overlay-sim-text-2 {
+            font-size: 0.8rem !important;
+            font-family: 'Gochi Hand', cursive;
+            padding: 20px;
+            text-align: center;
+            }
     }
 // @media only screen and (max-width: 768px)  {
 //     .allButFooter{
@@ -527,12 +563,12 @@ hr{
     opacity: 0;
 }
 
-.overlay-sim-text-2 p{
-    text-align: center;
-    font-family: 'Indie Flower', cursive;
-    color: rgb(36, 2, 2);
-    padding: 20px 20px;
-}
+// .overlay-sim-text-2 p{
+//     text-align: center;
+//     font-family: 'Indie Flower', cursive;
+//     color: rgb(36, 2, 2);
+//     padding: 20px 20px;
+// }
 
 .card{
     margin: 2em 3em 3em 3em;
