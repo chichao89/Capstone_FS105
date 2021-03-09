@@ -4,7 +4,7 @@ created new django app for capstone project
 connected django project to postgres sql
 created superuser admin
 
-install packages on requirements.txt
-create .env file in settings.py
-npm run build
-python run server
+1. install packages on requirements.txt
+2. create .env file in settings.py
+3. npm run build
+4. python run server
